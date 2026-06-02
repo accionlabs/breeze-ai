@@ -40,22 +40,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FEATURE CARDS */}
+      {/* CAPABILITIES */}
       <section className="features">
         <div className="feature-card">
           <div className="feature-card__icon" style={{background:'var(--indigo-light)',color:'var(--indigo)',borderColor:'oklch(0.78 0.12 280)'}}>⬡</div>
-          <h3>Four graph layers</h3>
-          <p>Functional, Architecture, Design, and Code — four connected ontologies sharing a single citation chain from business intent to shipped code.</p>
+          <h3>Code &amp; data, indexed</h3>
+          <p>Tree-sitter parsing across 10 languages — accurate symbols and edges from real ASTs — plus relational database and Elasticsearch schemas modelled as first-class graph nodes.</p>
+          <ul className="lang-badges" aria-label="Supported languages and data sources">
+            {['JS / TS','Python','Java','C#','Go','PHP','VB.NET','Apex','Perl','SQL schema','Elasticsearch'].map((l) => (
+              <li key={l} className={`lang-badge${l === 'SQL schema' || l === 'Elasticsearch' ? ' lang-badge--data' : ''}`}>{l}</li>
+            ))}
+          </ul>
         </div>
         <div className="feature-card">
           <div className="feature-card__icon" style={{background:'var(--teal-light)',color:'var(--teal)',borderColor:'oklch(0.78 0.10 200)'}}>⌘</div>
-          <h3>18 /breeze:* skills</h3>
-          <p>MCP-native slash commands inside Claude Code, Cursor, Cline, and Windsurf. Onboard repos, generate graphs, validate quality, export specs — without leaving your IDE.</p>
+          <h3>MCP server</h3>
+          <p>The <code>breeze-mcp</code> server brings 18 <code>/breeze:*</code> skills into your IDE — onboard repos, generate graphs, validate quality, and export specs without leaving the editor.</p>
+          <div className="feature-card__meta">Claude Code · Cursor · Cline · Windsurf</div>
         </div>
         <div className="feature-card">
-          <div className="feature-card__icon" style={{background:'var(--amber-light)',color:'var(--amber)',borderColor:'oklch(0.80 0.10 70)'}}>↩</div>
-          <h3>Citation-backed traceability</h3>
-          <p>Every node links back to the source document, Figma frame, Jira ticket, or code file that justifies it. Audit-grade traceability at every level.</p>
+          <div className="feature-card__icon" style={{background:'var(--amber-light)',color:'var(--amber)',borderColor:'oklch(0.80 0.10 70)'}}>◎</div>
+          <h3>Impact analysis</h3>
+          <p>Our core skill. Trace the full blast radius of any change across all four layers — functional → design → code → architecture — before you touch a line.</p>
+          <div className="feature-card__meta">/breeze:impact-analysis</div>
         </div>
       </section>
 
@@ -162,7 +169,7 @@ export default function Home() {
             <p>Install the plugin, link a project, and onboard your first repository in minutes.</p>
             <div className="landing-cta__btns">
               <Link href="/user-guide" className="btn btn--black">Read the documentation</Link>
-              <Link href="/user-guide#quickstart" className="btn btn--outline">View quick-start</Link>
+              <Link href="/user-guide/quickstart/" className="btn btn--outline">View quick-start</Link>
             </div>
             <div className="landing-cta__cmd">
               <span>{CMD}</span>

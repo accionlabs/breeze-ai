@@ -9,7 +9,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mon
 export const metadata: Metadata = {
   title: 'Breeze.AI — One connected graph, from intent to implementation',
   description: 'Breeze.AI is an AI-powered, ontology-driven development platform by Accion Labs. Capture requirements, architecture, code, and design as a single connected knowledge graph.',
-  icons: { icon: '/assets/logo.png' },
+  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/assets/logo.png` },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="footer__inner">
         <div className="footer__brand">
           <Link className="brand" href="/">
-            <Image className="brand__mark" src="/assets/logo.png" alt="" width={36} height={36} />
+            <Image className="brand__mark" src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/assets/logo.png`} alt="" width={36} height={36} />
             <div className="brand__text">
               <span className="brand__name">Breeze.AI</span>
               <span className="brand__by">By Accion Labs</span>
@@ -17,13 +17,11 @@ export default function Footer() {
         </div>
         <div className="footer__col">
           <h5>Documentation</h5>
-          <Link href="/user-guide#what-is">What is Breeze.AI?</Link>
-          <Link href="/user-guide#layers">Graph layers</Link>
-          <Link href="/user-guide#mcp">MCP integration</Link>
-          <Link href="/user-guide#skills">Skills reference</Link>
-          <Link href="/user-guide#cookbook">Building the graphs</Link>
-          <Link href="/user-guide#quickstart">Quick-start & URLs</Link>
-          <Link href="/user-guide#glossary">Glossary</Link>
+          <Link href="/user-guide/">What is Breeze.AI?</Link>
+          <Link href="/user-guide/mcp/">MCP integration</Link>
+          <Link href="/user-guide/skills/">Skills reference</Link>
+          <Link href="/user-guide/cookbook/">Building the graphs</Link>
+          <Link href="/user-guide/comparison/">Comparison study</Link>
         </div>
         <div className="footer__col">
           <h5>Resources</h5>
