@@ -250,6 +250,8 @@ code, kbd {
   cursor: pointer;
   color: var(--fg-muted);
   padding: 0;
+  display: flex;
+  align-items: center;
   line-height: 1;
   transition: color 0.15s;
 }
@@ -431,8 +433,9 @@ code, kbd {
 .cmp-table tbody tr:hover { background: var(--bg); }
 .cmp-verdict { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
 .verdict-col { padding: 18px 24px; }
-.verdict-col:first-child { border-right: 1px solid var(--border); }
+.verdict-col:first-child { border-right: 1px solid var(--border); background: oklch(0.96 0.03 155); }
 .verdict-col__label { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fg-muted); margin-bottom: 8px; }
+.verdict-col:first-child .verdict-col__label { color: oklch(0.48 0.12 155); }
 .verdict-col p { font-size: 13.5px; color: var(--fg-2); line-height: 1.55; }
 .honest-take { padding: 16px 24px; background: var(--bg); border-top: 1px solid var(--border); font-size: 13.5px; color: var(--fg-2); line-height: 1.6; }
 .honest-take b { color: var(--fg); font-weight: 600; }
@@ -440,16 +443,19 @@ code, kbd {
 /* matrix */
 .matrix-wrap { border: 1px solid var(--border); border-radius: var(--radius-lg); overflow-x: auto; margin-top: 32px; }
 .matrix { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
-.matrix th, .matrix td { padding: 11px 16px; text-align: center; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
+.matrix th, .matrix td { padding: 12px 18px; text-align: center; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); }
 .matrix th:last-child, .matrix td:last-child { border-right: none; }
-.matrix thead th { font-family: var(--display); font-weight: 700; font-size: 13.5px; background: var(--bg); }
-.matrix thead th.is-breeze { background: var(--bg-code); }
-.matrix td:first-child, .matrix th:first-child { text-align: left; width: 30%; font-weight: 500; color: var(--fg); }
+.matrix thead th { font-family: var(--display); font-weight: 700; font-size: 13.5px; background: var(--bg); color: var(--fg); }
+.matrix thead th.is-breeze { color: var(--indigo); }
+.matrix th:first-child { text-align: left; width: 30%; color: var(--fg-2); font-weight: 700; font-size: 13.5px; }
+.matrix td:first-child { text-align: left; width: 30%; font-weight: 500; color: var(--fg); }
 .matrix tbody tr:last-child td { border-bottom: none; }
-.matrix .yes { color: var(--fg); font-weight: 700; }
-.matrix .no  { color: var(--border-2); }
-.matrix .part { color: var(--fg-muted); font-size: 12px; }
-.matrix td.b-col { background: rgba(0,0,0,0.02); }
+.matrix tbody tr:hover td { background: var(--bg); }
+.matrix tbody tr:hover td.b-col { background: oklch(0.90 0.07 280); }
+.matrix .yes  { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: oklch(0.68 0.15 155); font-size: 0; vertical-align: middle; }
+.matrix .no   { color: var(--border-2); }
+.matrix .part { color: var(--amber); font-size: 12px; font-family: var(--mono); }
+.matrix td.b-col { background: var(--indigo-light); }
 
 /* CTA */
 .landing-cta {
