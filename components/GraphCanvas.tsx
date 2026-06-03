@@ -42,7 +42,7 @@ const LINKS: [number, number][] = [
   [11, 12], [13, 12], [11, 14],
 ]
 
-export default function GraphCanvas() {
+export default function GraphCanvas({ dark = false }: { dark?: boolean } = {}) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
@@ -162,7 +162,9 @@ export default function GraphCanvas() {
       ctx.lineWidth = 1
       for (const e of edges) {
         const a = nodes[e.a], b = nodes[e.b]
-        ctx.strokeStyle = e.explicit ? 'rgba(17,17,17,0.16)' : 'rgba(17,17,17,0.08)'
+        ctx.strokeStyle = dark
+          ? (e.explicit ? 'rgba(255,255,255,0.28)' : 'rgba(255,255,255,0.12)')
+          : (e.explicit ? 'rgba(17,17,17,0.16)' : 'rgba(17,17,17,0.08)')
         ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke()
       }
 

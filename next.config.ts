@@ -1,17 +1,23 @@
 import type { NextConfig } from "next";
 
-// On GitHub Pages a project site is served from a subpath (e.g. /breezeai-marketing-site).
-// CI sets PAGES_BASE_PATH to "/<repo-name>" so this auto-matches the repo (and survives renames);
-// it's empty locally and for root/custom-domain deploys.
+// PAGES_BASE_PATH is set only by the GitHub Pages CI build (e.g. "/breeze-ai").
+// When it's present we emit a static export under that subpath (what GitHub Pages serves).
+// When it's absent — i.e. locally — this stays a normal Next.js app, so `next dev` AND
+// `next start` both work with no extra flags.
 const basePath = process.env.PAGES_BASE_PATH || "";
+const isPagesBuild = basePath.length > 0;
 
 const nextConfig: NextConfig = {
-  output: 'export',          // emit a fully static site into ./out (no Node server)
-  trailingSlash: true,       // emit /user-guide/index.html so GitHub Pages serves it at /user-guide/
-  images: { unoptimized: true }, // default image optimizer needs a server; serve images as-is
-  basePath: basePath || undefined,
-  assetPrefix: basePath || undefined,
-  env: { NEXT_PUBLIC_BASE_PATH: basePath }, // expose to app code for plain-string asset paths
+  trailingSlash: true, // GitHub Pages serves /path/ as /path/index.html
+  env: { NEXT_PUBLIC_BASE_PATH: basePath }, // exposed to app code for plain-string asset paths
+  ...(isPagesBuild
+    ? {
+        output: "export",            // static HTML/JS/CSS into ./out, no Node server
+        images: { unoptimized: true }, // the default image optimizer needs a server
+        basePath,
+        assetPrefix: basePath,
+      }
+    : {}),
 };
 
 export default nextConfig;

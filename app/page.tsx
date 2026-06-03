@@ -1,9 +1,9 @@
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
-import GraphCanvas from '@/components/GraphCanvas'
 import ScrollReveal from '@/components/ScrollReveal'
 import ComparisonTabs from '@/components/ComparisonTabs'
 import CopyButton from '@/components/CopyButton'
+import ImpactFlow from '@/components/ImpactFlow'
 import Link from 'next/link'
 
 const CMD = '/plugin marketplace add accionlabs/breezeai-claude-plugin'
@@ -21,48 +21,101 @@ export default function Home() {
       <Nav links={HOME_LINKS} page="home" />
 
       {/* HERO */}
-      <section className="hero" id="top">
+      <section className="hero hero--dark" id="top">
         <div className="hero__copy">
-          <div className="hero__eyebrow">Ontology-driven development platform</div>
+          <div className="hero__eyebrow">AI-driven impact analysis</div>
           <h1>Every requirement, decision and line of code — one graph.</h1>
-          <p className="hero__sub">Breeze.AI captures requirements, architecture, code, and design as a single knowledge graph. Traceability preserved end-to-end, from business intent down to the line of code that implements it.</p>
+          <p className="hero__sub">An ontology-driven platform to understand traceability, assess risk, and manage change with precision — across requirements, architecture, design, and code.</p>
           <div className="hero__btns">
             <Link href="/user-guide" className="btn btn--black">Get started</Link>
-            <Link href="/user-guide" className="btn btn--outline">View documentation</Link>
+            <a href="https://ai.accionbreeze.com/" target="_blank" rel="noopener noreferrer" className="btn btn--ghost">Log in</a>
           </div>
           <div className="hero__cmd">
             <span>{CMD}</span>
             <CopyButton text={CMD} />
           </div>
+          <div className="hero__integrations">
+            <span className="hero__integrations-label">Integrated with</span>
+            <span className="hero__chip">Jira</span>
+            <span className="hero__chip">GitHub</span>
+            <span className="hero__chip">Bitbucket</span>
+          </div>
         </div>
-        <div className="hero__visual">
-          <GraphCanvas />
+        <div className="hero__visual hero__visual--flow">
+          <ImpactFlow />
         </div>
       </section>
 
       {/* CAPABILITIES */}
-      <section className="features">
+      <section className="features features--4">
         <div className="feature-card">
           <div className="feature-card__icon" style={{background:'var(--indigo-light)',color:'var(--indigo)',borderColor:'oklch(0.78 0.12 280)'}}>⬡</div>
-          <h3>Code &amp; data, indexed</h3>
-          <p>Tree-sitter parsing across 10 languages — accurate symbols and edges from real ASTs — plus relational database and Elasticsearch schemas modelled as first-class graph nodes.</p>
-          <ul className="lang-badges" aria-label="Supported languages and data sources">
-            {['JS / TS','Python','Java','C#','Go','PHP','VB.NET','Apex','Perl','SQL schema','Elasticsearch'].map((l) => (
-              <li key={l} className={`lang-badge${l === 'SQL schema' || l === 'Elasticsearch' ? ' lang-badge--data' : ''}`}>{l}</li>
+          <h3>Code indexing</h3>
+          <p>Tree-sitter parsing across 10 languages — accurate symbols and edges from real ASTs, enriched into the code graph.</p>
+          <ul className="lang-badges" aria-label="Supported languages">
+            {['JS / TS','Python','Java','C#','Go','PHP','VB.NET','Apex','Perl'].map((l) => (
+              <li key={l} className="lang-badge">{l}</li>
             ))}
           </ul>
         </div>
         <div className="feature-card">
-          <div className="feature-card__icon" style={{background:'var(--teal-light)',color:'var(--teal)',borderColor:'oklch(0.78 0.10 200)'}}>⌘</div>
-          <h3>MCP server</h3>
-          <p>The <code>breeze-mcp</code> server brings 18 <code>/breeze:*</code> skills into your IDE — onboard repos, generate graphs, validate quality, and export specs without leaving the editor.</p>
-          <div className="feature-card__meta">Claude Code · Cursor · Cline · Windsurf</div>
+          <div className="feature-card__icon" style={{background:'var(--teal-light)',color:'var(--teal)',borderColor:'oklch(0.78 0.10 200)'}}>▦</div>
+          <h3>Data schema ingestion</h3>
+          <p>Relational database schemas and Elasticsearch mappings modelled as first-class graph nodes — tables, columns, constraints, indexes, and mappings.</p>
+          <ul className="lang-badges" aria-label="Data schema sources">
+            {['SQL schema','PostgreSQL','Oracle','Elasticsearch'].map((l) => (
+              <li key={l} className="lang-badge lang-badge--data">{l}</li>
+            ))}
+          </ul>
         </div>
         <div className="feature-card">
-          <div className="feature-card__icon" style={{background:'var(--amber-light)',color:'var(--amber)',borderColor:'oklch(0.80 0.10 70)'}}>◎</div>
-          <h3>Impact analysis</h3>
-          <p>Our core skill. Trace the full blast radius of any change across all four layers — functional → design → code → architecture — before you touch a line.</p>
-          <div className="feature-card__meta">/breeze:impact-analysis</div>
+          <div className="feature-card__icon" style={{background:'var(--green-light)',color:'var(--green)',borderColor:'oklch(0.78 0.12 155)'}}>↧</div>
+          <h3>Ingest any source</h3>
+          <p>Pull in local documents, Figma designs, and repositories from GitHub and Bitbucket — plus issues and pages from Jira and Confluence — all into one graph.</p>
+          <ul className="lang-badges" aria-label="Ingestion sources">
+            {['Documents','Figma','GitHub','Bitbucket','Jira','Confluence'].map((l) => (
+              <li key={l} className="lang-badge">{l}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="feature-card">
+          <div className="feature-card__icon" style={{background:'var(--amber-light)',color:'var(--amber)',borderColor:'oklch(0.80 0.10 70)'}}>⌘</div>
+          <h3>One Claude Code plugin</h3>
+          <p>Install from the Breeze marketplace — the <code>breeze-mcp</code> server, 18 <code>/breeze:*</code> skills, and guardrail hooks, all in one plugin.</p>
+          <div className="feature-card__meta">Claude Code · /plugin marketplace add</div>
+        </div>
+      </section>
+
+      {/* CONTINUOUS SYNC */}
+      <section className="lsection" id="sync" style={{ background: 'var(--bg-white)' }}>
+        <div className="wrap">
+          <ScrollReveal>
+            <div className="lsection__head">
+              <div className="lsection__eyebrow">Always in sync</div>
+              <h2>A graph that never goes stale.</h2>
+              <p className="lead">Autonomous agents — wired into GitHub, Bitbucket, and Jira — watch every PR, push, and ticket and re-ingest what changed. The knowledge graph stays continuously up to date, so impact analysis and specs always reflect <code>HEAD</code>.</p>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal>
+            <div className="syncflow">
+              <div className="sync-card">
+                <div className="sync-card__h">Change events</div>
+                <div className="sync-chips"><span>GitHub PR</span><span>Bitbucket push</span><span>Jira transition</span></div>
+                <p>Webhooks fire the moment work lands.</p>
+              </div>
+              <span className="sync-arrow" aria-hidden="true">→</span>
+              <div className="sync-card sync-card--accent">
+                <div className="sync-card__h">Autonomous agents</div>
+                <p>Event-triggered agents re-run the right Breeze skills — onboard, generate, validate — scoped to exactly what changed.</p>
+              </div>
+              <span className="sync-arrow" aria-hidden="true">→</span>
+              <div className="sync-card">
+                <div className="sync-card__h">Graph updated</div>
+                <p>Nodes, edges, and citations refresh automatically — no manual re-sync, no drift.</p>
+              </div>
+            </div>
+          </ScrollReveal>
+          <div className="sync-loop">↻ Continuous — the loop runs on every change</div>
         </div>
       </section>
 
@@ -72,7 +125,7 @@ export default function Home() {
           <ScrollReveal>
             <div className="lsection__head">
               <div className="lsection__eyebrow">The problem</div>
-              <h2 className="lsection h2">Traceability dies at every handoff.</h2>
+              <h2>Traceability dies at every handoff.</h2>
               <p className="lead">Traditional delivery loses the thread each time work changes hands. By the time a regulator, customer, or new joiner asks <em>"why does this code exist?"</em>, the answer needs a tribal-knowledge tour.</p>
             </div>
           </ScrollReveal>
