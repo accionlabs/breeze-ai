@@ -531,8 +531,9 @@ code, kbd {
 }
 .lsection__eyebrow {
   font-family: var(--mono);
-  font-size: 11.5px;
-  letter-spacing: 0.12em;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   color: var(--fg-muted);
   margin-bottom: 16px;
