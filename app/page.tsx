@@ -124,19 +124,20 @@ export default function Home() {
         <div className="wrap">
           <ScrollReveal>
             <div className="lsection__head">
-              <div className="lsection__eyebrow">The problem</div>
-              <h2>Traceability dies at every handoff.</h2>
-              <p className="lead">Traditional delivery loses the thread each time work changes hands. By the time a regulator, customer, or new joiner asks <em>"why does this code exist?"</em>, the answer needs a tribal-knowledge tour.</p>
+              <div className="lsection__eyebrow lsection__eyebrow--amber">The problem</div>
+              <h2>Work moves forward.<br />Knowledge stays behind.</h2>
+              <p className="lead">Every team has tools. What they lack is a single thread connecting requirements to architecture, code, and design. Each handoff is a retelling — and with every retelling, context slips.</p>
             </div>
           </ScrollReveal>
           <div className="two-col">
             <ScrollReveal>
-              <div className="handoffs">
+              <div className="handoffs handoffs--today">
+                <div className="handoffs__badge">Without Breeze</div>
                 {[
-                  ['01', '<b>PMs</b> hand a doc to architects.', null],
-                  ['02', '<b>Architects</b> hand a diagram to engineers.', null],
-                  ['03', '<b>Engineers</b> ship code that drifts from the diagram.', '→ drift begins'],
-                  ['04', 'The <b>design system</b> in Figma evolves independently of the running UI.', '→ silent divergence'],
+                  ['01', '<b>PMs</b> write requirements — architects receive words, not intent.', null],
+                  ['02', '<b>Architects</b> produce diagrams — engineers receive snapshots, not decisions.', null],
+                  ['03', '<b>Engineers</b> ship code that silently drifts from both.', '↳ untracked drift'],
+                  ['04', 'The <b>design system</b> evolves in Figma, disconnected from the running UI.', '↳ silent divergence'],
                 ].map(([n, line, drift]) => (
                   <div key={n as string} className="handoff">
                     <span className="handoff__n">{n}</span>
@@ -149,8 +150,9 @@ export default function Home() {
               </div>
             </ScrollReveal>
             <ScrollReveal>
-              <div className="trace-card">
-                <div className="trace-card__label">// one traceable chain</div>
+              <div className="trace-card trace-card--breeze">
+                <div className="trace-card__badge">With Breeze</div>
+                <div className="trace-card__label">// one unbroken traceable chain</div>
                 {[
                   [0, 'Scenario', 'Customer completes checkout', '↩ JIRA-412'],
                   [24, 'Component', 'PaymentService', '↩ arch-blueprint'],
@@ -163,6 +165,7 @@ export default function Home() {
                     <span className="tnode__ref">{ref}</span>
                   </div>
                 ))}
+                <p className="trace-card__foot">Every node — requirement, design, code — linked and queryable.</p>
               </div>
             </ScrollReveal>
           </div>
