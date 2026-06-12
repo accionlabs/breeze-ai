@@ -1,14 +1,14 @@
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = { title: 'Breeze.AI vs other tools — Comparison' }
+export const metadata: Metadata = { title: 'Breeze.AI vs other tools: Comparison' }
 
 export default function Comparison() {
   return (
     <section className="docs-section">
-      <h1>Comparison Study — Breeze.AI vs Other Tools</h1>
+      <h1>Comparison Study: Breeze.AI vs Other Tools</h1>
 
       <p>
-        An honest positioning of Breeze.AI against the three tools most often raised in the same
+        A positioning of Breeze.AI against the three tools most often raised in the same
         conversation: <b>Graphify</b> (open-source code knowledge graph), <b>Sourcegraph Cody</b>{' '}
         (enterprise code intelligence + AI assistant), and <b>Graphiti</b> (Zep&apos;s temporal
         knowledge graph for agent memory).
@@ -20,7 +20,7 @@ export default function Comparison() {
         Breeze, one of these, or a combination is the right fit.
       </p>
 
-      <h2 id="landscape">1. The Landscape — One Sentence Each</h2>
+      <h2 id="landscape">1. The Landscape: One Sentence Each</h2>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead>
@@ -34,10 +34,9 @@ export default function Comparison() {
             <tr>
               <td><b>Breeze.AI</b></td>
               <td>
-                An ontology-driven platform that links requirements, architecture, code, and design
-                as a single Neo4j knowledge graph and drives code generation from it.
+                An AI-led SDLC platform built on Semantic Engineering: requirements, architecture, code, and design as a single Neo4j knowledge graph, driving code generation from it.
               </td>
-              <td>PMs, architects, engineers — across the whole SDLC</td>
+              <td>PMs, architects, engineers: across the whole SDLC</td>
             </tr>
             <tr>
               <td><b>Graphify</b></td>
@@ -51,15 +50,14 @@ export default function Comparison() {
               <td><b>Sourcegraph Cody</b></td>
               <td>
                 An enterprise code intelligence and AI coding assistant; multi-repo context
-                retrieval up to 10 repos.
+                retrieval up to ten repos.
               </td>
               <td>Engineering org needing code search + AI in-IDE</td>
             </tr>
             <tr>
               <td><b>Graphiti</b> (Zep)</td>
               <td>
-                A Python framework for <b>temporal</b> knowledge graphs — facts with validity
-                windows, real-time incremental updates. Built for agent memory.
+                A Python framework for <b>temporal</b> knowledge graphs (facts with validity windows, real-time incremental updates, built for agent memory).
               </td>
               <td>Builders of AI agents that need long-term, evolving memory</td>
             </tr>
@@ -99,8 +97,8 @@ export default function Comparison() {
             </tr>
             <tr>
               <td><b>Goes beyond code</b></td>
-              <td><b>Yes</b> — Functional / Architecture / Design graphs in addition to Code</td>
-              <td><b>No</b> — code-and-attached-docs only</td>
+              <td><b>Yes</b>: Functional / Architecture / Design Ontologies in addition to Code</td>
+              <td><b>No</b>: code-and-attached-docs only</td>
             </tr>
             <tr>
               <td><b>Persistent storage</b></td>
@@ -115,7 +113,7 @@ export default function Comparison() {
             <tr>
               <td><b>Privacy</b></td>
               <td>Code is uploaded to the Breeze backend (cluster-hosted)</td>
-              <td><b>Never uploads raw source</b> — only semantic descriptions of docs/diagrams go to the LLM you configure</td>
+              <td><b>Never uploads raw source</b>: only semantic descriptions of docs/diagrams go to the LLM you configure</td>
             </tr>
             <tr>
               <td><b>Cost / licensing</b></td>
@@ -124,7 +122,7 @@ export default function Comparison() {
             </tr>
             <tr>
               <td><b>Audience</b></td>
-              <td>Multi-user organisations — PMs, architects, engineers share one graph</td>
+              <td>Multi-user organisations: PMs, architects, engineers share one graph</td>
               <td>Solo developer / per-repo context window optimisation</td>
             </tr>
             <tr>
@@ -151,17 +149,17 @@ export default function Comparison() {
         operate; full local-only privacy (raw source never leaves the machine); free.
       </p>
       <div className="doc-note">
-        <b>Honest take:</b> A developer onboarding a brownfield repo <i>just to understand it</i> can
+        <b>Where each tool fits:</b> A developer onboarding a brownfield repo <i>just to understand it</i> can
         absolutely get value from Graphify in an afternoon. Breeze starts paying off when you also
-        care about <i>why</i> that code exists — the requirement, the design, the architectural slot
+        care about <i>why</i> that code exists: the requirement, the design, the architectural slot
         it fills.
       </div>
 
       <h2 id="vs-cody">3. Breeze.AI vs Sourcegraph Cody</h2>
       <p>
         <b>Different category, partial overlap.</b> Cody is an enterprise{' '}
-        <b>code-search + AI-coding</b> platform; Breeze is an <b>end-to-end SDLC ontology</b> that
-        includes a code graph as one of four layers.
+        <b>code-search + AI-coding</b> platform; Breeze is an <b>AI-led SDLC platform</b> that
+        includes a Code Ontology as one of four layers.
       </p>
       <div className="doc-table-wrap">
         <table className="doc-table">
@@ -175,33 +173,33 @@ export default function Comparison() {
           <tbody>
             <tr>
               <td><b>Core artifact</b></td>
-              <td>Knowledge graph (4 ontology layers)</td>
+              <td>Knowledge graph (four-layer ontology)</td>
               <td>Code search index + AI chat</td>
             </tr>
             <tr>
               <td><b>Requirements / functional intent</b></td>
-              <td>First-class — Persona → Outcome → Scenario → Step → Action</td>
-              <td>Not modeled — Cody doesn&apos;t track requirements</td>
+              <td>First-class: Persona → Outcome → Scenario → Step → Action</td>
+              <td>Not modeled; Cody doesn&apos;t track requirements</td>
             </tr>
             <tr>
               <td><b>Architecture diagrams</b></td>
-              <td>First-class — 8 fixed layers, impact analysis</td>
+              <td>First-class: 8 fixed layers, impact analysis</td>
               <td>Not modeled</td>
             </tr>
             <tr>
               <td><b>Design system</b></td>
-              <td>First-class — atomic-design graph, Figma deviation analysis</td>
+              <td>First-class: atomic-design graph, Figma deviation analysis</td>
               <td>Not modeled</td>
             </tr>
             <tr>
               <td><b>Code search</b></td>
               <td><code>Code_Graph_Search</code> (Neo4j-backed semantic search over parsed code)</td>
-              <td><b>Strength</b> — best-in-class code search across millions of files</td>
+              <td><b>Strength</b>: best-in-class code search across millions of files</td>
             </tr>
             <tr>
               <td><b>Multi-repo context</b></td>
-              <td>Yes — per project, every onboarded repo searchable together</td>
-              <td>Yes — Cody Enterprise pulls from up to 10 repos simultaneously</td>
+              <td>Yes: per project, every onboarded repo searchable together</td>
+              <td>Yes: Cody Enterprise pulls from up to 10 repos simultaneously</td>
             </tr>
             <tr>
               <td><b>IDE coverage</b></td>
@@ -215,8 +213,8 @@ export default function Comparison() {
             </tr>
             <tr>
               <td><b>Code generation</b></td>
-              <td>Yes — <code>/breeze:generate-code</code> scaffolds from functional scenario</td>
-              <td>Yes — Cody writes / fixes code inline</td>
+              <td>Yes: <code>/breeze:generate-code</code> scaffolds from functional scenario</td>
+              <td>Yes: Cody writes / fixes code inline</td>
             </tr>
             <tr>
               <td><b>Pricing</b></td>
@@ -231,7 +229,7 @@ export default function Comparison() {
             <tr>
               <td><b>Maturity / scale</b></td>
               <td>Newer, smaller customer base</td>
-              <td>Established (Sourcegraph started in 2013) — runs at very large enterprise scale</td>
+              <td>Established (Sourcegraph started in 2013); runs at very large enterprise scale</td>
             </tr>
           </tbody>
         </table>
@@ -239,7 +237,7 @@ export default function Comparison() {
 
       <p>
         <b>Where Breeze wins:</b> Captures the <b>why</b> in addition to the <b>what</b>. Generates
-        code from requirements, not from a chat instruction. Built for cross-role collaboration (PM
+        code from requirements, not from a chat instruction. Built for cross-role collaboration (Product Owner
         + architect + engineer) sharing one source of truth.
       </p>
       <p>
@@ -248,7 +246,7 @@ export default function Comparison() {
         ecosystem.
       </p>
       <div className="doc-note">
-        <b>Honest take:</b> If your problem is &quot;we have a huge codebase and engineers can&apos;t
+        <b>Where each tool fits:</b> If your problem is &quot;we have a huge codebase and engineers can&apos;t
         navigate it,&quot; Cody is purpose-built for that and you should buy it. If your problem is
         &quot;we don&apos;t know if our code matches our requirements, and PMs / engineers /
         designers are working from different artefacts,&quot; Breeze is what&apos;s purpose-built for
@@ -257,7 +255,7 @@ export default function Comparison() {
 
       <h2 id="vs-graphiti">4. Breeze.AI vs Graphiti</h2>
       <p>
-        <b>Almost no overlap — different problem space.</b> Graphiti is built for{' '}
+        <b>Almost no overlap: different problem space.</b> Graphiti is built for{' '}
         <b>AI agent memory</b> (conversational continuity, evolving facts). Breeze is built for{' '}
         <b>SDLC traceability</b> (requirements → code).
       </p>
@@ -284,12 +282,12 @@ export default function Comparison() {
             <tr>
               <td><b>Temporality</b></td>
               <td>Snapshot-of-now per project; no first-class time dimension on edges</td>
-              <td><b>Strength</b> — every edge has a validity window; point-in-time queries are native</td>
+              <td><b>Strength</b>: every edge has a validity window; point-in-time queries are native</td>
             </tr>
             <tr>
               <td><b>Update model</b></td>
               <td>Re-run a generation skill against the source; full diff</td>
-              <td><b>Real-time incremental</b> — facts arrive, are added/superseded immediately</td>
+              <td><b>Real-time incremental</b>: facts arrive, are added/superseded immediately</td>
             </tr>
             <tr>
               <td><b>Storage</b></td>
@@ -326,12 +324,12 @@ export default function Comparison() {
         wouldn&apos;t catch.
       </p>
       <p>
-        <b>Where Graphiti wins:</b> Temporal modelling — Breeze can&apos;t tell you &quot;what did
-        this scenario look like 3 months ago&quot;; Graphiti can. Real-time updates without
+        <b>Where Graphiti wins:</b> Temporal modelling: Breeze can&apos;t tell you &quot;what did
+        this scenario look like three months ago&quot;; Graphiti can. Real-time updates without
         re-running a pipeline. Better fit for any agent that&apos;s stateful across sessions.
       </p>
       <div className="doc-note">
-        <b>Honest take:</b> These are complementary, not competitive. A team building an AI assistant{' '}
+        <b>Where each tool fits:</b> These are complementary, not competitive. A team building an AI assistant{' '}
         <i>on top of</i> Breeze.AI could use Graphiti to give that assistant memory of past user
         interactions, while still relying on Breeze for the system-of-record graph.
       </div>
@@ -350,28 +348,28 @@ export default function Comparison() {
           </thead>
           <tbody>
             <tr>
-              <td>Code knowledge graph</td>
+              <td>Code Ontology</td>
               <td>✅</td>
               <td>✅</td>
               <td>partial (code search)</td>
               <td>—</td>
             </tr>
             <tr>
-              <td>Functional / requirements graph</td>
+              <td>Functional Ontology</td>
               <td>✅</td>
               <td>—</td>
               <td>—</td>
               <td>— (generic)</td>
             </tr>
             <tr>
-              <td>Architecture graph (8 layers)</td>
+              <td>Architecture Ontology (eight layers)</td>
               <td>✅</td>
               <td>—</td>
               <td>—</td>
               <td>—</td>
             </tr>
             <tr>
-              <td>Design system graph (atomic)</td>
+              <td>Design Ontology (atomic design model)</td>
               <td>✅</td>
               <td>—</td>
               <td>—</td>
@@ -488,8 +486,8 @@ export default function Comparison() {
         across sessions and reason over evolving facts. Not a fit for SDLC documentation.
       </p>
       <p>
-        <b>Pick Breeze.AI if:</b> you want the whole SDLC — <i>requirement → architecture → code →
-        design</i> — represented as one connected graph, queryable by humans and AI alike, with
+        <b>Pick Breeze.AI if:</b> you want the whole SDLC: <i>requirement → architecture → code →
+        design</i>, represented as one connected graph, queryable by humans and AI alike, with
         first-class support for code generation <i>from</i> that graph. The differentiator is the{' '}
         <b>functional + architecture + design</b> layers and the traceability between them, not the
         code graph alone.
@@ -516,7 +514,7 @@ export default function Comparison() {
           <a href="https://arxiv.org/abs/2501.13956" target="_blank" rel="noreferrer">Zep paper (arXiv 2501.13956)</a>,{' '}
           <a href="https://neo4j.com/blog/developer/graphiti-knowledge-graph-memory/" target="_blank" rel="noreferrer">Neo4j developer blog</a>
         </li>
-        <li>Breeze.AI — this Confluence space (Platform Overview tree)</li>
+        <li>Breeze.AI: this Confluence space (Platform Overview tree)</li>
       </ul>
     </section>
   )

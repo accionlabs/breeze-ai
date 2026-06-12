@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = { title: 'Skills reference — Breeze.AI' }
+export const metadata: Metadata = { title: 'Skills reference: Breeze.AI' }
 
 export default function Skills() {
   return (
     <section className="docs-section">
-      <h1>Skills Reference — the 18 /breeze:* skills</h1>
+      <h1>Skills Reference: the 18 /breeze:* skills</h1>
 
       <p>
         In-depth reference for every skill bundled with the Breeze plugin. Each entry covers the
@@ -67,7 +67,7 @@ export default function Skills() {
       </div>
 
       {/* ── Group 1 ───────────────────────────────────────────── */}
-      <h2 id="group-1-setup">Group 1 — Setup</h2>
+      <h2 id="group-1-setup">Group 1: Setup</h2>
 
       <h3 id="breeze-setup-project">/breeze:setup-project</h3>
       <p>
@@ -155,11 +155,11 @@ export default function Skills() {
           <b>Pick upload mode.</b>
           <ul>
             <li>
-              <b>Automatic</b> — CLI streams ndjson to backend; needs an <code>apiKey</code> (not
-              Keycloak OAuth — the CLI uses an explicit key).
+              <b>Automatic</b>: CLI streams ndjson to backend; needs an <code>apiKey</code> (not
+              Keycloak OAuth; the CLI uses an explicit key).
             </li>
             <li>
-              <b>Manual</b> — CLI writes ndjson locally; user uploads via the Breeze UI at{' '}
+              <b>Manual</b>: CLI writes ndjson locally; user uploads via the Breeze UI at{' '}
               <code>&lt;uiBaseUrl&gt;/code-ontology/&lt;projectUuid&gt;</code>. No key required.
             </li>
           </ul>
@@ -182,7 +182,7 @@ export default function Skills() {
         </li>
       </ol>
       <p>
-        <b>MCP tools used.</b> None directly — the CLI talks to the Breeze REST backend.
+        <b>MCP tools used.</b> None directly; the CLI talks to the Breeze REST backend.
       </p>
       <p>
         <b>Outputs.</b> New code ontology in the project; repo registered in{' '}
@@ -190,7 +190,7 @@ export default function Skills() {
       </p>
 
       {/* ── Group 2 ───────────────────────────────────────────── */}
-      <h2 id="group-2-search-and-analysis">Group 2 — Search &amp; Analysis</h2>
+      <h2 id="group-2-search-and-analysis">Group 2: Search &amp; Analysis</h2>
 
       <h3 id="breeze-search">/breeze:search &lt;query&gt;</h3>
       <p>
@@ -204,7 +204,7 @@ export default function Skills() {
         …&quot; / &quot;who handles …&quot; questions.
       </p>
       <p>
-        <b>Inputs.</b> <code>$ARGUMENTS</code> — free-text query. <code>.breeze.json</code> &rarr;{' '}
+        <b>Inputs.</b> <code>$ARGUMENTS</code>: free-text query. <code>.breeze.json</code> &rarr;{' '}
         <code>projectUuid</code>.
       </p>
       <p>
@@ -269,13 +269,13 @@ export default function Skills() {
       <ul>
         <li>
           <b>Jira ticket link/key</b> (<code>https://…atlassian.net/browse/PROJ-123</code> or{' '}
-          <code>PROJ-123</code>) — fetched via the Jira MCP.
+          <code>PROJ-123</code>), fetched via the Jira MCP.
         </li>
         <li>
-          <b>Document or specification text</b> — pasted text or a PDF reference.
+          <b>Document or specification text</b>: pasted text or a PDF reference.
         </li>
         <li>
-          <b>Source code</b> — file path or code snippet; the skill translates code &rarr;
+          <b>Source code</b>: file path or code snippet; the skill translates code &rarr;
           functional language via <code>Code_Graph_Search</code> + <code>Get_Code_File_Details</code>.
         </li>
         <li>
@@ -320,7 +320,7 @@ export default function Skills() {
 
       <h3 id="breeze-analyze-architecture">/breeze:analyze-architecture</h3>
       <p>
-        <b>Purpose.</b> Map a requirement to the 8-layer architecture model, run code-graph impact
+        <b>Purpose.</b> Map a requirement to the eight-layer architecture model, run code-graph impact
         analysis, anchor user-facing components to functional scenarios, detect reuse and gaps, and
         write the analysis back to the Jira ticket.
       </p>
@@ -332,7 +332,7 @@ export default function Skills() {
       </p>
       <ul>
         <li>
-          <code>--jira &lt;jira-url&gt;</code> — recommended; fetched via Jira MCP.
+          <code>--jira &lt;jira-url&gt;</code>: recommended; fetched via Jira MCP.
         </li>
         <li>Ad-hoc requirement text / document / image / diagram.</li>
       </ul>
@@ -362,7 +362,7 @@ export default function Skills() {
           </ul>
         </li>
         <li>
-          <b>Map to the 8 layers.</b> UserExperience, ApiGateway, ObservabilityMonitoring, Agents,
+          <b>Map to the eight layers.</b> UserExperience, ApiGateway, ObservabilityMonitoring, Agents,
           Services, EventQueue, DataLake, Infrastructure.
         </li>
         <li>
@@ -425,7 +425,7 @@ export default function Skills() {
           scenario can be split into multiple flows / pages.
         </li>
         <li>
-          <b>Generate design nodes</b> — UserJourney (1:1 with Scenario), Flow(s), Page(s),
+          <b>Generate design nodes</b>: UserJourney (1:1 with Scenario), Flow(s), Page(s),
           Component(s) with atomic-design typing (ATOM / MOLECULE / ORGANISM / TEMPLATE),{' '}
           <code>supportingComponents[]</code> and <code>designSystemRef</code> reuse.
         </li>
@@ -477,12 +477,12 @@ export default function Skills() {
       </p>
       <ol>
         <li>
-          <b>Phase 1 — Build</b> <code>existingcomponents.json</code> from MCP. Iterate{' '}
+          <b>Phase 1: Build</b> <code>existingcomponents.json</code> from MCP. Iterate{' '}
           <code>Get_all_Design_By_Label</code> for <code>Component</code> until all design-graph
           components are dumped to a local JSON.
         </li>
         <li>
-          <b>Phase 2 — Compare.</b> Multi-dimensional diff:
+          <b>Phase 2: Compare.</b> Multi-dimensional diff:
           <ul>
             <li>
               Name matching (with semantic equivalence resolution: <code>IconBCI</code> &harr;{' '}
@@ -540,7 +540,7 @@ export default function Skills() {
           types, role enums, guards / HOCs, feature flag configs.
         </li>
         <li>
-          <b>Analyze 5 dimensions.</b>
+          <b>Analyze five dimensions.</b>
           <ul>
             <li>Routes / Layouts &rarr; product variants (regional, plan, tenant).</li>
             <li>Subscription tiers &rarr; access levels.</li>
@@ -568,7 +568,7 @@ export default function Skills() {
 
       {/* ── Group 3 ───────────────────────────────────────────── */}
       <h2 id="group-3-generate-from-documents-and-designs">
-        Group 3 — Generate from Documents &amp; Designs
+        Group 3: Generate from Documents &amp; Designs
       </h2>
 
       <h3 id="breeze-visual-to-text">/breeze:visual-to-text</h3>
@@ -583,7 +583,7 @@ export default function Skills() {
         design&quot;.
       </p>
       <p>
-        <b>Inputs.</b> Figma URL (fileKey + nodeId extracted from the URL — convert <code>-</code> to{' '}
+        <b>Inputs.</b> Figma URL (fileKey + nodeId extracted from the URL; convert <code>-</code> to{' '}
         <code>:</code> in nodeId), or a PDF/PNG/JPG file path.
       </p>
       <p>
@@ -612,7 +612,7 @@ export default function Skills() {
           modals, toggles), display elements, data structures, state indicators.
         </li>
         <li>
-          <b>Map to functional intent</b> — Personas, Outcomes, Scenarios, Steps, Actions per{' '}
+          <b>Map to functional intent</b>: Personas, Outcomes, Scenarios, Steps, Actions per{' '}
           <code>skills/visual-to-text/references/guide.md</code>.
         </li>
         <li>
@@ -718,7 +718,7 @@ export default function Skills() {
           <b>Framework detection.</b> LoopBack, NestJS, Express, Fastify, Spring, FastAPI, etc.
         </li>
         <li>
-          <b>Entry-point discovery</b> — all types:
+          <b>Entry-point discovery</b>: all types:
           <ul>
             <li>REST routes.</li>
             <li>SQS / Kafka / RabbitMQ consumers and producers.</li>
@@ -747,12 +747,12 @@ export default function Skills() {
       </p>
       <div className="doc-note">
         <b>Cross-repo merge.</b> The <code>from-ui</code> and <code>from-backend</code> passes are
-        fully independent — they merge automatically in the functional graph by outcome name. Run{' '}
+        fully independent; they merge automatically in the functional graph by outcome name. Run{' '}
         <code>from-backend</code> once per backend repo.
       </div>
 
       {/* ── Group 4 ───────────────────────────────────────────── */}
-      <h2 id="group-4-generate-downstream-artifacts">Group 4 — Generate Downstream Artifacts</h2>
+      <h2 id="group-4-generate-downstream-artifacts">Group 4: Generate Downstream Artifacts</h2>
 
       <h3 id="breeze-generate-design">/breeze:generate-design</h3>
       <p>
@@ -773,27 +773,27 @@ export default function Skills() {
       </p>
       <ol>
         <li>
-          <b>Step 0 — Mode selection.</b> <code>confirm</code> (default, asks per scenario) or{' '}
+          <b>Step 0: Mode selection.</b> <code>confirm</code> (default, asks per scenario) or{' '}
           <code>auto</code> (skips per-scenario confirmation, logs progress).
         </li>
         <li>
-          <b>Step 1 — Load functional scope.</b> Iterate scenarios via{' '}
+          <b>Step 1: Load functional scope.</b> Iterate scenarios via{' '}
           <code>Get_scenarios_by_uuid</code> (filter <code>is_design_generated=false</code>) and{' '}
           <code>Get_all_steps_actions_for_a_scenario_id</code>.
         </li>
         <li>
-          <b>Step 2 — Lookup design-system references</b> (component reuse via{' '}
+          <b>Step 2: Lookup design-system references</b> (component reuse via{' '}
           <code>designSystemRef</code>).
         </li>
         <li>
-          <b>Step 3 — Generate design nodes</b> per atomic-design theory (ATOM / MOLECULE / ORGANISM
+          <b>Step 3: Generate design nodes</b> per atomic-design theory (ATOM / MOLECULE / ORGANISM
           / TEMPLATE).
         </li>
         <li>
-          <b>Step 4 — Bulk upsert</b> via <code>Bulk_Update_Design_Nodes</code>.
+          <b>Step 4: Bulk upsert</b> via <code>Bulk_Update_Design_Nodes</code>.
         </li>
         <li>
-          <b>Steps 5–7</b> — Confirmation, persistence, summary.
+          <b>Steps 5–7</b>: Confirmation, persistence, summary.
         </li>
       </ol>
       <p>
@@ -868,21 +868,21 @@ export default function Skills() {
         full app&quot;.
       </p>
       <p>
-        <b>Inputs.</b> <code>$ARGUMENTS</code> — scope selector. Scopes:
+        <b>Inputs.</b> <code>$ARGUMENTS</code>: scope selector. Scopes:
       </p>
       <ul>
         <li>
-          <b>Selective generation</b> — single scenario or feature (e.g. &quot;generate code for
+          <b>Selective generation</b>: single scenario or feature (e.g. &quot;generate code for
           login&quot;).
         </li>
         <li>
-          <b>Full frontend</b> — &quot;generate frontend&quot;, &quot;build the UI&quot;.
+          <b>Full frontend</b>: &quot;generate frontend&quot;, &quot;build the UI&quot;.
         </li>
         <li>
-          <b>Full backend</b> — &quot;generate backend&quot;, &quot;build the API&quot;.
+          <b>Full backend</b>: &quot;generate backend&quot;, &quot;build the API&quot;.
         </li>
         <li>
-          <b>Full-stack</b> — both, sequentially.
+          <b>Full-stack</b>: both, sequentially.
         </li>
       </ul>
       <p>
@@ -890,24 +890,24 @@ export default function Skills() {
       </p>
       <ol>
         <li>
-          <b>UNDERSTAND</b> — <code>Functional_Graph_Search</code> +{' '}
+          <b>UNDERSTAND</b>: <code>Functional_Graph_Search</code> +{' '}
           <code>Get_all_steps_actions_for_a_scenario_id</code> for the WHAT.
         </li>
         <li>
-          <b>DISCOVER</b> — <code>Code_Graph_Search</code> + <code>Get_Code_File_Details</code> for
+          <b>DISCOVER</b>: <code>Code_Graph_Search</code> + <code>Get_Code_File_Details</code> for
           the HOW (existing patterns, utilities, conventions).
         </li>
         <li>
-          <b>REFERENCE</b> — <code>Documents</code> for business rules, formulas, validation
+          <b>REFERENCE</b>: <code>Documents</code> for business rules, formulas, validation
           thresholds.
         </li>
         <li>
-          <b>GENERATE</b> — write code that aligns with steps from #1, reuses utilities from #2,
+          <b>GENERATE</b>: write code that aligns with steps from #1, reuses utilities from #2,
           applies rules from #3; add comments referencing functional graph node IDs for
           traceability.
         </li>
         <li>
-          <b>TEST</b> — generate test cases from the scenario tree (
+          <b>TEST</b>: generate test cases from the scenario tree (
           <code>describe(&quot;[Scenario]&quot;)</code> &rarr;{' '}
           <code>it(&quot;[Step] &rarr; [Action]&quot;)</code> …).
         </li>
@@ -936,7 +936,7 @@ export default function Skills() {
         graph&quot;.
       </p>
       <p>
-        <b>Inputs.</b> <code>$ARGUMENTS</code> — output mode flags. Modes:
+        <b>Inputs.</b> <code>$ARGUMENTS</code>: output mode flags. Modes:
       </p>
       <div className="doc-table-wrap">
         <table className="doc-table">
@@ -998,7 +998,7 @@ export default function Skills() {
         </table>
       </div>
       <p>
-        If <code>$ARGUMENTS</code> is empty, the skill <b>does NOT generate</b> — it shows the
+        If <code>$ARGUMENTS</code> is empty, the skill <b>does NOT generate</b>; it shows the
         options menu and waits for the user to pick.
       </p>
       <p>
@@ -1034,7 +1034,7 @@ export default function Skills() {
       </p>
 
       {/* ── Group 5 ───────────────────────────────────────────── */}
-      <h2 id="group-5-update-validate">Group 5 — Update, Validate</h2>
+      <h2 id="group-5-update-validate">Group 5: Update, Validate</h2>
 
       <h3 id="breeze-update-functional-graph">/breeze:update-functional-graph</h3>
       <p>
@@ -1059,7 +1059,7 @@ export default function Skills() {
           <b>Analyze input</b> to extract functional intents.
         </li>
         <li>
-          <b>Load existing graph</b> — <code>Get_all_personas</code> for the persona list;{' '}
+          <b>Load existing graph</b>: <code>Get_all_personas</code> for the persona list;{' '}
           <code>Functional_Graph_Search</code> with key terms for nearest existing outcomes /
           scenarios.
         </li>
@@ -1069,7 +1069,7 @@ export default function Skills() {
             <li>Named human role (Admin, Fund Manager, Compliance Officer, …).</li>
             <li>Generic human role (User, Customer, Visitor).</li>
             <li>External System (webhooks, partner APIs, payment gateways).</li>
-            <li>System (only if fully internal automation — cron, queue workers, schedulers).</li>
+            <li>System (only if fully internal automation: cron, queue workers, schedulers).</li>
           </ol>
         </li>
         <li>
@@ -1098,7 +1098,7 @@ export default function Skills() {
 
       <h3 id="breeze-validate-functional-graph">/breeze:validate-functional-graph</h3>
       <p>
-        <b>Purpose.</b> Audit graph quality — coverage against source documents, duplicates, persona
+        <b>Purpose.</b> Audit graph quality: coverage against source documents, duplicates, persona
         quality, description completeness, action platform-agnosticism, citation traceability.
       </p>
       <p>
@@ -1123,7 +1123,7 @@ export default function Skills() {
       </p>
       <ol>
         <li>
-          <b>Collect graph data</b> — <code>Get_complete_functional_graph</code> (auto-saves to a
+          <b>Collect graph data</b>: <code>Get_complete_functional_graph</code> (auto-saves to a
           JSON file).
         </li>
         <li>
@@ -1162,7 +1162,7 @@ export default function Skills() {
       </p>
 
       {/* ── Group 6 ───────────────────────────────────────────── */}
-      <h2 id="group-6-retired">Group 6 — Retired</h2>
+      <h2 id="group-6-retired">Group 6: Retired</h2>
 
       <h3 id="breeze-deprecated-cluster-pipeline">
         /breeze:deprecated-cluster-pipeline <em>(do not use)</em>
@@ -1196,14 +1196,14 @@ export default function Skills() {
       </p>
       <ul>
         <li>
-          <code>/breeze:generate-functional-from-ui</code> — frontend repos.
+          <code>/breeze:generate-functional-from-ui</code>: frontend repos.
         </li>
         <li>
-          <code>/breeze:generate-functional-from-backend</code> — backend repos.
+          <code>/breeze:generate-functional-from-backend</code>: backend repos.
         </li>
       </ul>
       <p>
-        The two replacements are independent and merge automatically by outcome name — together they
+        The two replacements are independent and merge automatically by outcome name; together they
         cover everything this skill used to do, without the cluster duplication.
       </p>
 

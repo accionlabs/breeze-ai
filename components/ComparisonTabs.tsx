@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 const CMP = {
   graphify: {
-    breeze: { what: 'Ontology-driven platform linking requirements, architecture, code & design as one Neo4j graph — and driving code generation from it.' },
+    breeze: { what: 'Ontology-driven platform linking requirements, architecture, code & design as one Neo4j knowledge graph, driving code generation from it.' },
     other: { name: 'Graphify', what: 'Open-source skill / CLI that turns any folder into a queryable knowledge graph, served back to AI coding assistants.' },
     rows: [
       ['Code graph generation','Tree-sitter across 10 languages','Tree-sitter across 20 languages'],
@@ -11,30 +11,30 @@ const CMP = {
       ['Persistent storage','Multi-tenant Neo4j cluster','Local files (GRAPH_REPORT.md + graph.html)'],
       ['Privacy','Code uploaded to the Breeze backend','Never uploads raw source'],
       ['Cost / licensing','Hosted SaaS · enterprise pricing','Open-source, free'],
-      ['Audience','Multi-user orgs — PM, architect, engineer','Solo developer / per-repo context'],
+      ['Audience','Multi-user orgs: Product Owner, architect, engineer','Solo developer / per-repo context'],
     ],
     win: "Functional / Architecture / Design layers Graphify doesn't model; multi-user collaboration; requirement traceability from a Jira ticket → graph node → code file.",
     owin: 'Wider language coverage (20 vs 10); zero infrastructure; full local-only privacy; free.',
     honest: 'A developer onboarding a brownfield repo <em>just to understand it</em> can get value from Graphify in an afternoon. Breeze starts paying off when you also care about <b>why</b> that code exists.',
   },
   cody: {
-    breeze: { what: 'An end-to-end SDLC ontology that includes a code graph as one of four layers.' },
-    other: { name: 'Sourcegraph Cody', what: 'Enterprise code-search + AI coding assistant; multi-repo context retrieval up to 10 repos.' },
+    breeze: { what: 'An AI-led SDLC platform built on Semantic Engineering, with four ontology layers from requirements to code.' },
+    other: { name: 'Sourcegraph Cody', what: 'Enterprise code-search + AI coding assistant; multi-repo context retrieval up to ten repos.' },
     rows: [
-      ['Core artifact','Knowledge graph (4 ontology layers)','Code search index + AI chat'],
-      ['Requirements / intent','First-class — Persona → Outcome → Scenario','Not modeled'],
-      ['Architecture diagrams','First-class — 8 layers, impact analysis','Not modeled'],
+      ['Core artifact','Knowledge graph (four-layer ontology)','Code search index + AI chat'],
+      ['Requirements / intent','First-class: Persona → Outcome → Scenario','Not modeled'],
+      ['Architecture diagrams','First-class: 8 layers, impact analysis','Not modeled'],
       ['Code search','Neo4j-backed semantic search','Best-in-class across millions of files'],
       ['Code generation','From functional scenario','Inline, chat-driven'],
       ['Maturity / scale','Newer, growing','Established since 2013, very large scale'],
     ],
-    win: 'Captures the <b>why</b> in addition to the <b>what</b>. Generates code from requirements. Built for PM + architect + engineer sharing one source of truth.',
+    win: 'Captures the <b>why</b> in addition to the <b>what</b>. Generates code from requirements. Built for Product Owner + architect + engineer sharing one source of truth.',
     owin: 'Production-hardened. Excellent at "find every place this symbol is used across 200 repos." Free personal tier.',
     honest: 'If your problem is "we have a huge codebase engineers can\'t navigate," Cody is purpose-built for that. If it\'s "we don\'t know if our code matches our requirements," Breeze is. <b>They can coexist.</b>',
   },
   graphiti: {
-    breeze: { what: 'Built for SDLC traceability — requirements → architecture → code → design.' },
-    other: { name: 'Graphiti (Zep)', what: 'Python framework for temporal knowledge graphs — facts with validity windows, built for agent memory.' },
+    breeze: { what: 'Built for SDLC traceability: requirements → architecture → code → design.' },
+    other: { name: 'Graphiti (Zep)', what: 'Python framework for temporal knowledge graphs (facts with validity windows, built for agent memory).' },
     rows: [
       ['Primary purpose','Link requirements → code → design','Durable, time-aware agent memory'],
       ['Graph shape','Fixed ontologies','Generic entity-relationship from conversations'],
@@ -51,10 +51,10 @@ const CMP = {
 type CmpKey = keyof typeof CMP
 
 const MATRIX = [
-  ['Code knowledge graph','●','●','search','—'],
-  ['Functional / requirements graph','●','—','—','generic'],
-  ['Architecture graph (8 layers)','●','—','—','—'],
-  ['Design system graph (atomic)','●','—','—','—'],
+  ['Code Ontology','●','●','search','—'],
+  ['Functional Ontology','●','—','—','generic'],
+  ['Architecture Ontology (eight layers)','●','—','—','—'],
+  ['Design Ontology (atomic design model)','●','—','—','—'],
   ['Temporal facts (validity windows)','—','—','—','●'],
   ['Tree-sitter parsing','10 langs','20 langs','proprietary','—'],
   ['Code search across many repos','●','local','●','—'],
@@ -103,7 +103,7 @@ export default function ComparisonTabs() {
           <div className="verdict-col"><div className="verdict-col__label">Where Breeze wins</div><p dangerouslySetInnerHTML={{ __html: C.win }} /></div>
           <div className="verdict-col"><div className="verdict-col__label">Where {C.other.name} wins</div><p>{C.owin}</p></div>
         </div>
-        <div className="honest-take"><b>Honest take — </b><span dangerouslySetInnerHTML={{ __html: C.honest }} /></div>
+        <div className="honest-take"><b>Where each tool fits: </b><span dangerouslySetInnerHTML={{ __html: C.honest }} /></div>
       </div>
 
       <div className="matrix-wrap" style={{ marginTop: 32 }}>

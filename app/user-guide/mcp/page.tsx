@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = { title: 'MCP integration — Breeze.AI' }
+export const metadata: Metadata = { title: 'MCP integration: Breeze.AI' }
 
 export default function Mcp() {
   return (
@@ -9,13 +9,13 @@ export default function Mcp() {
       <h1>MCP integration</h1>
 
       <h2 id="what-youre-installing">What you&apos;re installing</h2>
-      <p>When you &quot;add Breeze to your IDE,&quot; you&apos;re installing <strong>one Claude Code plugin</strong> called <code>breeze</code> — distributed through a <strong>marketplace</strong> called <code>breezeai-plugins</code>. That single plugin gives you three things at once:</p>
+      <p>When you &quot;add Breeze to your IDE,&quot; you&apos;re installing <strong>one Claude Code plugin</strong> called <code>breeze</code>, distributed through a <strong>marketplace</strong> called <code>breezeai-plugins</code>. That single plugin gives you three things at once:</p>
       <ol>
-        <li><strong>An MCP server</strong> (<code>breeze-mcp</code>) — registered automatically, gives Claude ~43 typed tools to read and write your Breeze project.</li>
-        <li><strong>18 skills</strong> — <code>/breeze:*</code> slash-commands that orchestrate those tools to do real work (onboard a repo, generate a functional graph, validate it, generate code, etc.).</li>
-        <li><strong>Two pre-tool-use hooks</strong> — guardrails that block bad tool calls before they leave your machine.</li>
+        <li><strong>An MCP server</strong> (<code>breeze-mcp</code>): registered automatically, gives Claude ~43 typed tools to read and write your Breeze project.</li>
+        <li><strong>18 skills</strong>: <code>/breeze:*</code> slash-commands that orchestrate those tools to do real work (onboard a repo, generate a functional graph, validate it, generate code, etc.).</li>
+        <li><strong>Two pre-tool-use hooks</strong>: guardrails that block bad tool calls before they leave your machine.</li>
       </ol>
-      <p>You don&apos;t pick and choose — they ship as a bundle and the marketplace install puts them all in place.</p>
+      <p>You don&apos;t pick and choose; they ship as a bundle and the marketplace install puts them all in place.</p>
       <p>This page is the <strong>conceptual + setup guide</strong> for the bundle. For the in-depth references:</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
@@ -28,7 +28,7 @@ export default function Mcp() {
         </table>
       </div>
 
-      <h2 id="core-concept">Core concept — marketplace, MCP server, and skills</h2>
+      <h2 id="core-concept">Core concept: marketplace, MCP server, and skills</h2>
       <p>Three Claude Code concepts stack to deliver Breeze:</p>
 
       <h3 id="mcp-servers">MCP servers</h3>
@@ -50,14 +50,9 @@ export default function Mcp() {
       </div>
       <div className="doc-note"><b>Note:</b> Full per-tool schemas (parameters, types, required flags, defaults, return shape) live on the dedicated page: <Link href="/user-guide/mcp-tools/">MCP Tool Reference</Link>.</div>
 
-      <h3 id="skills-why-they-exist">Skills — why they exist</h3>
-      <p>Raw MCP tools work, but they have a real usability problem: <strong>a user staring at 43 tool names usually doesn&apos;t know which ones to call, in what order, or with what arguments to accomplish a real task.</strong> &quot;Generate a functional graph from a backend repo&quot; is not a single tool call — it&apos;s a sequence of discovery, validation prompts, multiple <code>Call_Create_Functional_Node_</code> invocations, citation linking, and so on.</p>
-      <p><strong>Skills are reusable recipes that solve this.</strong> Each skill is a single Markdown file (<code>SKILL.md</code>) that:</p>
-      <ul>
-        <li>Names the task (<code>generate-functional-from-backend</code>, <code>analyze-functional</code>, …)</li>
-        <li>Describes when to use it (so Claude can auto-route a natural-language request to the right skill)</li>
-        <li>Lays out the step-by-step procedure — including the <strong>exact sequence of MCP tool calls</strong>, decision logic, validation gates, user-confirmation points, and failure modes</li>
-      </ul>
+      <h3 id="skills-why-they-exist">Skills: why they exist</h3>
+      <p>Raw MCP tools work, but they have a real usability problem: <strong>a user staring at 43 tool names usually doesn&apos;t know which ones to call, in what order, or with what arguments to accomplish a real task.</strong> &quot;Generate a functional graph from a backend repo&quot; is not a single tool call; it&apos;s a sequence of discovery, validation prompts, multiple <code>Call_Create_Functional_Node_</code> invocations, citation linking, and so on.</p>
+      <p><strong>Skills are reusable recipes that solve this.</strong> Each skill is a single Markdown file (<code>SKILL.md</code>) that names the task (<code>generate-functional-from-backend</code>, <code>analyze-functional</code>, …), describes when to use it so Claude can auto-route natural-language requests, and lays out the step-by-step procedure, including the <strong>exact sequence of MCP tool calls</strong>, decision logic, validation gates, user-confirmation points, and failure modes.</p>
       <p>So a skill is two things at once: it&apos;s <strong>a curated workflow</strong> (the &quot;right way&quot; to compose tools for a task) and it&apos;s <strong>a discoverable command</strong> (a <code>/breeze:*</code> slash that the user can type). The plugin ships 18 of them, grouped roughly as:</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
@@ -83,9 +78,9 @@ The marketplace   = how the phrasebook gets delivered to your IDE`}</pre>
       <p>A <strong>marketplace</strong> in Claude Code is a catalog of plugins. You point Claude at the marketplace once, then you can install any plugin from it. The Breeze marketplace is published at:</p>
       <pre className="doc-pre">{`accionlabs/breezeai-claude-plugin`}</pre>
       <p>It contains exactly one plugin today: <code>breeze</code> v3.1.0 (the bundle of MCP server + skills + hooks). The marketplace name is <code>breezeai-plugins</code> (set in <code>.claude-plugin/marketplace.json</code>); the plugin name is <code>breeze</code> (set in <code>.claude-plugin/plugin.json</code>). You&apos;ll see both names in the install flow.</p>
-      <p><strong>Why a marketplace at all?</strong> It decouples <em>distribution</em> from the IDE. The plugin lives in a single GitHub repo, but every developer&apos;s Claude Code installation can subscribe, install, and update independently — no IDE config sprawl, no per-developer setup script, no hidden coupling to where the code lives on disk. New skills, new MCP tools, and new hooks ship as one versioned bundle (<code>v3.1.0</code> today). A <code>/plugin update breeze</code> pulls the latest from the marketplace and restarts cleanly. Teams that fork get their own marketplace; downstream MCP changes are additive and don&apos;t break older skill recipes. In short: it&apos;s the same pattern as <code>npm</code>, <code>pip</code>, or <code>cargo</code> — just scoped to the Claude Code surface (skills + hooks + MCP wiring).</p>
+      <p><strong>Why a marketplace at all?</strong> It decouples <em>distribution</em> from the IDE. The plugin lives in a single GitHub repo, but every developer&apos;s Claude Code installation can subscribe, install, and update independently (no IDE config sprawl, no per-developer setup script, no hidden coupling to where the code lives on disk). New skills, new MCP tools, and new hooks ship as one versioned bundle (<code>v3.1.0</code> today). A <code>/plugin update breeze</code> pulls the latest from the marketplace and restarts cleanly. Teams that fork get their own marketplace; downstream MCP changes are additive and don&apos;t break older skill recipes. In short: it&apos;s the same pattern as <code>npm</code>, <code>pip</code>, or <code>cargo</code>: just scoped to the Claude Code surface (skills + hooks + MCP wiring).</p>
 
-      <h2 id="setup">Setup — adding the marketplace and installing the plugin</h2>
+      <h2 id="setup">Setup: adding the marketplace and installing the plugin</h2>
       <p>Five commands in Claude Code. Each step does exactly one thing:</p>
       <pre className="doc-pre">{`# 1. Register the marketplace (does NOT install anything yet)
 /plugin marketplace add accionlabs/breezeai-claude-plugin
@@ -115,8 +110,8 @@ The marketplace   = how the phrasebook gets delivered to your IDE`}</pre>
             <tr><td><code>install breeze</code></td><td>Downloads the plugin into your local Claude Code plugin directory. Reads <code>plugin.json</code> and <code>.mcp.json</code>. Registers <code>breeze-mcp</code> as a known MCP server.</td></tr>
             <tr><td><code>enable breeze</code></td><td>Marks the plugin active. Most installs auto-enable, so this is often a no-op.</td></tr>
             <tr><td><strong>Restart</strong></td><td>Required. The hooks (<code>pre-init-check.sh</code>, <code>validate-functional-node.sh</code>) and MCP server registration are only applied at startup. The <code>/breeze:*</code> commands won&apos;t appear until you restart.</td></tr>
-            <tr><td><code>/plugin list</code></td><td>Sanity check — confirms <code>breeze</code> is installed + enabled.</td></tr>
-            <tr><td><code>/breeze:setup-project</code></td><td>First real command — writes <code>.breeze.json</code>, links you to a Breeze project, and triggers the <strong>first</strong> MCP tool call. That first call kicks off the browser-based Keycloak OAuth login (PKCE), so make sure you have a browser handy.</td></tr>
+            <tr><td><code>/plugin list</code></td><td>Sanity check: confirms <code>breeze</code> is installed + enabled.</td></tr>
+            <tr><td><code>/breeze:setup-project</code></td><td>First real command: writes <code>.breeze.json</code>, links you to a Breeze project, and triggers the <strong>first</strong> MCP tool call. That first call kicks off the browser-based Keycloak OAuth login (PKCE), so make sure you have a browser handy.</td></tr>
           </tbody>
         </table>
       </div>
@@ -138,20 +133,20 @@ The marketplace   = how the phrasebook gets delivered to your IDE`}</pre>
     }
   }
 }`}</pre>
-      <p>You&apos;ll get the ~43 tools, but <strong>not the</strong> <code>/breeze:*</code> skills — those are a Claude-Code-specific plugin format. In other clients you&apos;ll need to compose the tools yourself, or wait for that client to support the <code>SKILL.md</code> pattern.</p>
+      <p>You&apos;ll get the ~43 tools, but <strong>not the</strong> <code>/breeze:*</code> skills; those are a Claude-Code-specific plugin format. In other clients you&apos;ll need to compose the tools yourself, or wait for that client to support the <code>SKILL.md</code> pattern.</p>
 
-      <h2 id="after-setup">What to do after setup — use the Cookbook</h2>
+      <h2 id="after-setup">What to do after setup: use the Cookbook</h2>
       <p>Once <code>/breeze:setup-project</code> reports a linked project, you&apos;re in. The full recipe collection is on a dedicated page:</p>
-      <div className="doc-note"><b>Note:</b> → <Link href="/user-guide/cookbook/">Building the Graphs — Cookbook</Link></div>
+      <div className="doc-note"><b>Note:</b> → <Link href="/user-guide/cookbook/">Building the Graphs: Cookbook</Link></div>
       <p>That page covers, recipe-by-recipe:</p>
       <ul>
-        <li><strong>Code graph</strong> — onboarding a repo (Claude Code path vs WebUI path)</li>
-        <li><strong>Functional graph</strong> — brownfield (<code>/breeze:generate-functional-from-ui</code> + <code>…-from-backend</code>) and greenfield (from docs / Figma)</li>
-        <li><strong>Design graph</strong> — from functional, from real UI, from Figma, drift detection</li>
-        <li><strong>Architecture graph</strong> — point Claude at docs, or use <code>/breeze:analyze-architecture</code></li>
-        <li><strong>Keeping graphs in sync</strong> — the manual resync pattern (no dedicated skill today)</li>
-        <li><strong>Recommended order</strong> — brownfield vs greenfield</li>
-        <li><strong>Quick reference</strong> — &quot;I want to… → use…&quot; table</li>
+        <li><strong>Code graph</strong>: onboarding a repo (Claude Code path vs WebUI path)</li>
+        <li><strong>Functional graph</strong>: brownfield (<code>/breeze:generate-functional-from-ui</code> + <code>…-from-backend</code>) and greenfield (from docs / Figma)</li>
+        <li><strong>Design graph</strong>: from functional, from real UI, from Figma, drift detection</li>
+        <li><strong>Architecture graph</strong>: point Claude at docs, or use <code>/breeze:analyze-architecture</code></li>
+        <li><strong>Keeping graphs in sync</strong>: the manual resync pattern (no dedicated skill today)</li>
+        <li><strong>Recommended order</strong>: brownfield vs greenfield</li>
+        <li><strong>Quick reference</strong>: &quot;I want to… → use…&quot; table</li>
       </ul>
       <p>A condensed shortcut for the impatient:</p>
       <pre className="doc-pre">{`# Brownfield (existing product)
@@ -181,8 +176,8 @@ The marketplace   = how the phrasebook gets delivered to your IDE`}</pre>
           <thead><tr><th>Group</th><th>Tools</th><th>What it does</th></tr></thead>
           <tbody>
             <tr><td><strong>Project management</strong></td><td><code>4</code></td><td>List / create / get / update projects</td></tr>
-            <tr><td><strong>Functional graph — hierarchy reads</strong></td><td><code>6</code></td><td>Persona → Outcome → Scenario → Step → Action drill-down + full-graph export</td></tr>
-            <tr><td><strong>Functional graph — search &amp; mutation</strong></td><td><code>7</code></td><td>Semantic search; create / update / bulk-upsert / delete nodes; attach citations</td></tr>
+            <tr><td><strong>Functional graph: hierarchy reads</strong></td><td><code>6</code></td><td>Persona → Outcome → Scenario → Step → Action drill-down + full-graph export</td></tr>
+            <tr><td><strong>Functional graph: search &amp; mutation</strong></td><td><code>7</code></td><td>Semantic search; create / update / bulk-upsert / delete nodes; attach citations</td></tr>
             <tr><td><strong>Architecture graph</strong></td><td><code>6</code></td><td>Read / search / create / update / delete across the 8 layers (UserExperience, ApiGateway, ObservabilityMonitoring, Agents, Services, EventQueue, DataLake, Infrastructure); DDL search</td></tr>
             <tr><td><strong>Design graph</strong></td><td><code>6</code></td><td>Atomic-design CRUD: UserJourney → Flow → Page → Component (ATOM / MOLECULE / ORGANISM / TEMPLATE)</td></tr>
             <tr><td><strong>Code graph</strong></td><td><code>3</code></td><td>List repos in the code ontology; semantic search across File / Function / Class; per-file structural drill-down</td></tr>
@@ -255,7 +250,7 @@ The marketplace   = how the phrasebook gets delivered to your IDE`}</pre>
           <tbody>
             <tr><td>Endpoint</td><td><code>https://breezeai-mcp-python.accionbreeze.com/mcp</code></td></tr>
             <tr><td>Transport</td><td>Streamable HTTP</td></tr>
-            <tr><td>Auth</td><td>Keycloak OAuth2 (PKCE flow) — same realm as the WebUI</td></tr>
+            <tr><td>Auth</td><td>Keycloak OAuth2 (PKCE flow): same realm as the WebUI</td></tr>
             <tr><td>Implementation</td><td>Python (FastMCP)</td></tr>
             <tr><td>Registered in</td><td><code>breezeai-claude-plugin/.mcp.json</code></td></tr>
           </tbody>
@@ -263,30 +258,30 @@ The marketplace   = how the phrasebook gets delivered to your IDE`}</pre>
       </div>
       <p>First tool call from a fresh session triggers a browser-based Keycloak sign-in (PKCE). The token is cached locally by Claude Code; subsequent sessions don&apos;t re-authenticate until the refresh token expires.</p>
 
-      <h3 id="hooks">Hooks — server-side guardrails at the client</h3>
+      <h3 id="hooks">Hooks: server-side guardrails at the client</h3>
       <p>Two <code>PreToolUse</code> hooks run in Claude Code <strong>before any tool call</strong>:</p>
       <ul>
-        <li><code>pre-init-check.sh</code> — runs before every <code>/breeze:*</code> skill. Verifies <code>.breeze.json</code> exists and has <code>projectUuid</code>. Stops with <code>BLOCKED: .breeze.json not found…</code> otherwise.</li>
+        <li><code>pre-init-check.sh</code>: runs before every <code>/breeze:*</code> skill. Verifies <code>.breeze.json</code> exists and has <code>projectUuid</code>. Stops with <code>BLOCKED: .breeze.json not found…</code> otherwise.</li>
         <li>
-          <code>validate-functional-node.sh</code> — runs before <code>Call_Create_Functional_Node_</code> / <code>Call_Update_Functional_Node_</code>. Enforces:
+          <code>validate-functional-node.sh</code>: runs before <code>Call_Create_Functional_Node_</code> / <code>Call_Update_Functional_Node_</code>. Enforces:
           <ul>
             <li><strong>Label</strong> must be <code>Persona | Outcome | Scenario | Step | Action</code></li>
-            <li><strong>Persona names</strong> — forbids <code>Developer / Engineer / API / Service / Controller / Backend / Frontend / …</code></li>
-            <li><strong>Outcome names</strong> — flags technical names like <code>Handle API Request</code> / <code>Process Database Queries</code></li>
-            <li><strong>Required parents</strong> — Outcome needs <code>personaId</code>, Scenario needs <code>outcomeId</code>, Step needs <code>scenarioId</code>, Action needs <code>stepId</code></li>
-            <li><strong>Descriptions</strong> — required for Scenario / Step / Action</li>
+            <li><strong>Persona names</strong>: forbids <code>Developer / Engineer / API / Service / Controller / Backend / Frontend / …</code></li>
+            <li><strong>Outcome names</strong>: flags technical names like <code>Handle API Request</code> / <code>Process Database Queries</code></li>
+            <li><strong>Required parents</strong>: Outcome needs <code>personaId</code>, Scenario needs <code>outcomeId</code>, Step needs <code>scenarioId</code>, Action needs <code>stepId</code></li>
+            <li><strong>Descriptions</strong>: required for Scenario / Step / Action</li>
           </ul>
         </li>
       </ul>
       <p>Hook source: <code>breezeai-claude-plugin/scripts/</code>. Full ontology rules: <code>breezeai-claude-plugin/skills/shared/functional-graph-rules.md</code>.</p>
 
-      <h2 id="when-to-use-what">When to use what — three interfaces</h2>
+      <h2 id="when-to-use-what">When to use what: three interfaces</h2>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>You are…</th><th>Use</th><th>Why</th></tr></thead>
           <tbody>
             <tr><td>A developer with the repo on your machine</td><td><strong>Claude Code + the breeze plugin</strong></td><td>OAuth (no key paste), full skill library, hooks enforce ontology rules client-side</td></tr>
-            <tr><td>A PM / analyst doing exploration</td><td><strong>WebUI</strong> (<code>ai.accionbreeze.com</code>)</td><td>Visual graph editor; no IDE / CLI setup needed</td></tr>
+            <tr><td>A Product Owner / analyst doing exploration</td><td><strong>WebUI</strong> (<code>ai.accionbreeze.com</code>)</td><td>Visual graph editor; no IDE / CLI setup needed</td></tr>
             <tr><td>A CI job, batch indexer, or other headless context</td><td><strong>Code Ontology CLI</strong> with an <code>apiKey</code></td><td>No browser available for OAuth</td></tr>
             <tr><td>Using Cursor / Cline / Windsurf</td><td>Register the <strong>MCP server only</strong> (no skills)</td><td>The skill format is Claude Code-specific today</td></tr>
           </tbody>
@@ -299,7 +294,7 @@ The marketplace   = how the phrasebook gets delivered to your IDE`}</pre>
         <table className="doc-table">
           <thead><tr><th>Server</th><th>Purpose</th></tr></thead>
           <tbody>
-            <tr><td><strong>Atlassian</strong> plugin</td><td>Confluence + Jira CRUD — page creation, ticket triage, spec-to-backlog</td></tr>
+            <tr><td><strong>Atlassian</strong> plugin</td><td>Confluence + Jira CRUD: page creation, ticket triage, spec-to-backlog</td></tr>
             <tr><td><strong>Figma</strong> plugin</td><td>Design context retrieval; Code Connect mapping</td></tr>
             <tr><td><strong>Playwright</strong> plugin</td><td>Browser automation for verifying UI changes</td></tr>
           </tbody>
@@ -308,33 +303,33 @@ The marketplace   = how the phrasebook gets delivered to your IDE`}</pre>
       <p>These run independently; Claude can interleave tool calls from different MCP servers in one conversation.</p>
 
       <h2 id="faq">FAQ</h2>
-      <p><strong>Q: Do I need an API key to use the MCP?</strong><br />No. MCP uses Keycloak OAuth — the first tool call triggers a browser sign-in. API keys are only used by the Code Ontology Generator CLI (headless context) when you pick its automatic-upload mode. MCP-only workflows never need a key.</p>
+      <p><strong>Q: Do I need an API key to use the MCP?</strong><br />No. MCP uses Keycloak OAuth; the first tool call triggers a browser sign-in. API keys are only used by the Code Ontology Generator CLI (headless context) when you pick its automatic-upload mode. MCP-only workflows never need a key.</p>
       <p><strong>Q: Why did</strong> <code>Persona: &quot;Developer&quot;</code> get rejected?<br />The PreToolUse hook <code>validate-functional-node.sh</code> blocks technical persona names. Use a domain role (Admin, Customer, Analyst, …) or <code>System</code> if the actor is fully internal.</p>
       <p><strong>Q: The</strong> <code>/breeze:*</code> commands don&apos;t show up after install.<br />Restart Claude Code. Skills are loaded at startup, not at install time.</p>
-      <p><strong>Q: What happens if the backend adds a new tool?</strong><br />Next time Claude Code lists tools from the server, the new one appears automatically — no plugin update needed. The MCP Tool Reference page may need a refresh to document it.</p>
+      <p><strong>Q: What happens if the backend adds a new tool?</strong><br />Next time Claude Code lists tools from the server, the new one appears automatically (no plugin update needed). The MCP Tool Reference page may need a refresh to document it.</p>
       <p><strong>Q: How do I know if my code graph is stale?</strong><br />No automatic staleness signal today. The pragmatic answer: note the commit hash you onboarded from (visible in the WebUI&apos;s code-ontology view), and re-onboard after any large merge. See <Link href="/user-guide/cookbook/">Cookbook → Keeping the Graphs in Sync</Link>.</p>
       <p><strong>Q: Can I share skills with my team?</strong><br />The whole plugin is the unit of distribution. Once the marketplace is set up at the team level (or each developer adds it), everyone has the same 18 skills.</p>
-      <p><strong>Q: Can I write my own Breeze skill?</strong><br />Not officially supported today — the validation hooks are tuned to the bundled skills. A future direction is opening this up.</p>
+      <p><strong>Q: Can I write my own Breeze skill?</strong><br />Not officially supported today; the validation hooks are tuned to the bundled skills. A future direction is opening this up.</p>
 
       <h2 id="future-direction">Future direction</h2>
       <ol>
-        <li><strong>Incremental code-graph resync</strong> — today re-running <code>/breeze:onboard-repository</code> replaces the whole code graph for a repo. A diff-based update would let big repos resync in seconds.</li>
-        <li><strong>A dedicated</strong> <code>/breeze:resync</code> skill — today resync is &quot;re-run the same generation skill.&quot; A first-class skill could compute a diff and apply deltas.</li>
-        <li><strong>User-authored skills</strong> — opening the skill format so customers can ship their own <code>/&lt;org&gt;:*</code> commands alongside <code>/breeze:*</code>.</li>
-        <li><strong>MCP resources</strong> — the four graphs as browsable read-only resources, not just tool calls — so non-LLM clients can render them directly.</li>
-        <li><strong>Tighter Bedrock model alignment</strong> — the cost estimate assumes Sonnet 4.6, but production runs Claude 3 Haiku today; consolidating those is on the roadmap.</li>
+        <li><strong>Incremental code-graph resync</strong>: today re-running <code>/breeze:onboard-repository</code> replaces the whole code graph for a repo. A diff-based update would let big repos resync in seconds.</li>
+        <li><strong>A dedicated</strong> <code>/breeze:resync</code> skill: today resync is &quot;re-run the same generation skill.&quot; A first-class skill could compute a diff and apply deltas.</li>
+        <li><strong>User-authored skills</strong>: opening the skill format so customers can ship their own <code>/&lt;org&gt;:*</code> commands alongside <code>/breeze:*</code>.</li>
+        <li><strong>MCP resources</strong>: the four graphs as browsable read-only resources, not just tool calls, so non-LLM clients can render them directly.</li>
+        <li><strong>Tighter Bedrock model alignment</strong>: the cost estimate assumes Sonnet 4.6, but production runs Claude 3 Haiku today; consolidating those is on the roadmap.</li>
       </ol>
 
       <h2 id="glossary">Glossary</h2>
       <dl className="glossary-grid">
         <div className="glossary-item"><dt>Marketplace</dt><dd>A Claude Code catalog of plugins. Adding a marketplace is metadata only; nothing is downloaded until you install a plugin from it.</dd></div>
         <div className="glossary-item"><dt>Plugin</dt><dd>A bundle of skills + MCP servers + hooks installed into Claude Code. Breeze ships one: breeze v3.1.0.</dd></div>
-        <div className="glossary-item"><dt>MCP</dt><dd>Model Context Protocol — open spec for LLM tool/resource servers.</dd></div>
+        <div className="glossary-item"><dt>MCP</dt><dd>Model Context Protocol: open spec for LLM tool/resource servers.</dd></div>
         <div className="glossary-item"><dt>Tool</dt><dd>A function the LLM can call. Typed inputs + outputs.</dd></div>
         <div className="glossary-item"><dt>Resource</dt><dd>Read-only data the LLM can browse. Not used by breeze-mcp yet.</dd></div>
-        <div className="glossary-item"><dt>Skill</dt><dd>A SKILL.md file describing a reusable recipe — usually a sequence of tool calls with user-confirmation gates. Surfaces as a /&lt;plugin&gt;:&lt;skill&gt; slash command.</dd></div>
+        <div className="glossary-item"><dt>Skill</dt><dd>A SKILL.md file describing a reusable recipe: usually a sequence of tool calls with user-confirmation gates. Surfaces as a /&lt;plugin&gt;:&lt;skill&gt; slash command.</dd></div>
         <div className="glossary-item"><dt>Hook</dt><dd>A PreToolUse shell script that validates / blocks a tool call before it executes.</dd></div>
-        <div className="glossary-item"><dt>PKCE</dt><dd>Proof Key for Code Exchange — the OAuth flow variant Claude Code uses for the MCP login.</dd></div>
+        <div className="glossary-item"><dt>PKCE</dt><dd>Proof Key for Code Exchange: the OAuth flow variant Claude Code uses for the MCP login.</dd></div>
         <div className="glossary-item"><dt>.breeze.json</dt><dd>Per-workspace state file. Must contain projectUuid. Gitignored.</dd></div>
         <div className="glossary-item"><dt>Citation</dt><dd>Pointer from a graph node to a source artefact (doc, Jira, code, Figma).</dd></div>
         <div className="glossary-item"><dt>Code graph</dt><dd>Tree-Sitter-parsed File → Class → Function → Statement → Api model of a repo.</dd></div>
