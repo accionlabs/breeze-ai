@@ -38,7 +38,7 @@ function Card({ i }: { i: number }) {
   )
   if (i === 2) return (
     <>
-      <div className="flow-report__head"><span className="flow-report__dot flow-report__dot--amber" />Functional Spec — FRD</div>
+      <div className="flow-report__head"><span className="flow-report__dot flow-report__dot--amber" />Functional Spec: FRD</div>
       <div className="flow-report__risk flow-report__risk--amber">Export&nbsp;<b>Markdown · HTML</b></div>
       <ul className="flow-doclines">
         <li>1 · Overview &amp; personas</li>

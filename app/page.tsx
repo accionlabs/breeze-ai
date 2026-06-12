@@ -23,9 +23,9 @@ export default function Home() {
       {/* HERO */}
       <section className="hero hero--dark" id="top">
         <div className="hero__copy">
-          <div className="hero__eyebrow">AI-driven impact analysis</div>
-          <h1>Every requirement, decision and line of code — one graph.</h1>
-          <p className="hero__sub">An ontology-driven platform to understand traceability, assess risk, and manage change with precision — across requirements, architecture, design, and code.</p>
+          <div className="hero__eyebrow">AI-led SDLC</div>
+          <h1>Every requirement, decision and line of code: one graph.</h1>
+          <p className="hero__sub">Built on Semantic Engineering: understand traceability, assess risk, and manage change with precision across requirements, architecture, design, and code.</p>
           <div className="hero__btns">
             <Link href="/user-guide" className="btn btn--black">Get started</Link>
             <a href="https://ai.accionbreeze.com/" target="_blank" rel="noopener noreferrer" className="btn btn--ghost">Log in</a>
@@ -51,7 +51,7 @@ export default function Home() {
         <div className="feature-card">
           <div className="feature-card__icon" style={{background:'var(--indigo-light)',color:'var(--indigo)',borderColor:'oklch(0.78 0.12 280)'}}>⬡</div>
           <h3>Code indexing</h3>
-          <p>Tree-sitter parsing across 10 languages — accurate symbols and edges from real ASTs, enriched into the code graph.</p>
+          <p>Tree-sitter parsing across ten languages: accurate symbols and edges from real ASTs, enriched into the code graph.</p>
           <ul className="lang-badges" aria-label="Supported languages">
             {['JS / TS','Python','Java','C#','Go','PHP','VB.NET','Apex','Perl'].map((l) => (
               <li key={l} className="lang-badge">{l}</li>
@@ -61,7 +61,7 @@ export default function Home() {
         <div className="feature-card">
           <div className="feature-card__icon" style={{background:'var(--teal-light)',color:'var(--teal)',borderColor:'oklch(0.78 0.10 200)'}}>▦</div>
           <h3>Data schema ingestion</h3>
-          <p>Relational database schemas and Elasticsearch mappings modelled as first-class graph nodes — tables, columns, constraints, indexes, and mappings.</p>
+          <p>Relational database schemas and Elasticsearch mappings modelled as first-class graph nodes: tables, columns, constraints, indexes, and mappings.</p>
           <ul className="lang-badges" aria-label="Data schema sources">
             {['SQL schema','PostgreSQL','Oracle','Elasticsearch'].map((l) => (
               <li key={l} className="lang-badge lang-badge--data">{l}</li>
@@ -71,7 +71,7 @@ export default function Home() {
         <div className="feature-card">
           <div className="feature-card__icon" style={{background:'var(--green-light)',color:'var(--green)',borderColor:'oklch(0.78 0.12 155)'}}>↧</div>
           <h3>Ingest any source</h3>
-          <p>Pull in local documents, Figma designs, and repositories from GitHub and Bitbucket — plus issues and pages from Jira and Confluence — all into one graph.</p>
+          <p>Pull in local documents, Figma designs, and repositories from GitHub and Bitbucket, plus issues and pages from Jira and Confluence, all into one graph.</p>
           <ul className="lang-badges" aria-label="Ingestion sources">
             {['Documents','Figma','GitHub','Bitbucket','Jira','Confluence'].map((l) => (
               <li key={l} className="lang-badge">{l}</li>
@@ -81,7 +81,7 @@ export default function Home() {
         <div className="feature-card">
           <div className="feature-card__icon" style={{background:'var(--amber-light)',color:'var(--amber)',borderColor:'oklch(0.80 0.10 70)'}}>⌘</div>
           <h3>One Claude Code plugin</h3>
-          <p>Install from the Breeze marketplace — the <code>breeze-mcp</code> server, 18 <code>/breeze:*</code> skills, and guardrail hooks, all in one plugin.</p>
+          <p>Install from the Breeze marketplace: the <code>breeze-mcp</code> server, 18 <code>/breeze:*</code> skills, and guardrail hooks, all in one plugin.</p>
           <div className="feature-card__meta">Claude Code · /plugin marketplace add</div>
         </div>
       </section>
@@ -93,7 +93,7 @@ export default function Home() {
             <div className="lsection__head">
               <div className="lsection__eyebrow">Always in sync</div>
               <h2>A graph that never goes stale.</h2>
-              <p className="lead">Autonomous agents — wired into GitHub, Bitbucket, and Jira — watch every PR, push, and ticket and re-ingest what changed. The knowledge graph stays continuously up to date, so impact analysis and specs always reflect <code>HEAD</code>.</p>
+              <p className="lead">Autonomous agents (wired into GitHub, Bitbucket, and Jira) watch every PR, push, and ticket and re-ingest what changed. The knowledge graph stays continuously up to date, so impact analysis and specs always reflect <code>HEAD</code>.</p>
             </div>
           </ScrollReveal>
           <ScrollReveal>
@@ -106,16 +106,16 @@ export default function Home() {
               <span className="sync-arrow" aria-hidden="true">→</span>
               <div className="sync-card sync-card--accent">
                 <div className="sync-card__h">Autonomous agents</div>
-                <p>Event-triggered agents re-run the right Breeze skills — onboard, generate, validate — scoped to exactly what changed.</p>
+                <p>Event-triggered agents re-run the right Breeze skills (onboard, generate, validate), scoped to exactly what changed.</p>
               </div>
               <span className="sync-arrow" aria-hidden="true">→</span>
               <div className="sync-card">
                 <div className="sync-card__h">Graph updated</div>
-                <p>Nodes, edges, and citations refresh automatically — no manual re-sync, no drift.</p>
+                <p>Nodes, edges, and citations refresh automatically (no manual re-sync, no drift).</p>
               </div>
             </div>
           </ScrollReveal>
-          <div className="sync-loop">↻ Continuous — the loop runs on every change</div>
+          <div className="sync-loop">↻ Continuous: the loop runs on every change</div>
         </div>
       </section>
 
@@ -126,33 +126,25 @@ export default function Home() {
             <div className="lsection__head">
               <div className="lsection__eyebrow lsection__eyebrow--amber">The problem</div>
               <h2>Work moves forward.<br />Knowledge stays behind.</h2>
-              <p className="lead">Every team has tools. What they lack is a single thread connecting requirements to architecture, code, and design. Each handoff is a retelling — and with every retelling, context slips.</p>
+              <p className="lead">Every team has tools. What they lack is a single thread connecting requirements to architecture, code, and design. Each handoff is a retelling, and with every retelling, context slips.</p>
             </div>
           </ScrollReveal>
           <div className="two-col">
             <ScrollReveal>
               <div className="handoffs handoffs--today">
                 <div className="handoffs__badge">Without Breeze</div>
-                {[
-                  ['01', '<b>PMs</b> write requirements — architects receive words, not intent.', null],
-                  ['02', '<b>Architects</b> produce diagrams — engineers receive snapshots, not decisions.', null],
-                  ['03', '<b>Engineers</b> ship code that silently drifts from both.', '↳ untracked drift'],
-                  ['04', 'The <b>design system</b> evolves in Figma, disconnected from the running UI.', '↳ silent divergence'],
-                ].map(([n, line, drift]) => (
-                  <div key={n as string} className="handoff">
-                    <span className="handoff__n">{n}</span>
-                    <span className="handoff__line">
-                      <span dangerouslySetInnerHTML={{ __html: line as string }} />
-                      {drift && <span className="handoff__drift">{drift as string}</span>}
-                    </span>
-                  </div>
-                ))}
+                <div className="handoffs__prose">
+                  <p>Requirements start in a document. By the time they reach an architect, they&apos;ve been interpreted, intent compressed into a diagram. Engineers receive that diagram as a snapshot of decisions already made, not as a record of the reasoning behind them.</p>
+                  <p>Code ships. It drifts from the diagram. <em>↳ untracked</em></p>
+                  <p>The design system evolves in Figma on its own schedule, diverging from the running UI with no mechanism to detect the gap. <em>↳ silent divergence</em></p>
+                  <p>When something breaks (or a regulator asks why a feature exists): the answer requires interviewing the people who remember..</p>
+                </div>
               </div>
             </ScrollReveal>
             <ScrollReveal>
               <div className="trace-card trace-card--breeze">
                 <div className="trace-card__badge">With Breeze</div>
-                <div className="trace-card__label">// one unbroken traceable chain</div>
+                <div className="trace-card__label">// one traceable chain</div>
                 {[
                   [0, 'Scenario', 'Customer completes checkout', '↩ JIRA-412'],
                   [24, 'Component', 'PaymentService', '↩ arch-blueprint'],
@@ -165,7 +157,7 @@ export default function Home() {
                     <span className="tnode__ref">{ref}</span>
                   </div>
                 ))}
-                <p className="trace-card__foot">Every node — requirement, design, code — linked and queryable.</p>
+                <p className="trace-card__foot">Every node is a citation. Every citation is queryable by humans, agents, and your IDE.</p>
               </div>
             </ScrollReveal>
           </div>
@@ -179,18 +171,18 @@ export default function Home() {
             <div className="lsection__head">
               <div className="lsection__eyebrow">The Breeze approach</div>
               <h2>One graph. Every artifact. Nothing lost.</h2>
-              <p className="lead">Breeze keeps the chain intact by storing every artefact as a node in one graph — queryable by humans through the Web UI, by LLM agents through chat, or by your IDE through Claude Code skills and MCP.</p>
+              <p className="lead">Breeze keeps the chain intact by storing every artefact as a node in one graph, queryable by humans through the Web UI, by LLM agents through chat, or by your IDE through Claude Code skills and MCP.</p>
             </div>
           </ScrollReveal>
           <ScrollReveal>
             <div className="persona-grid">
               {[
-                ['PM', 'Product Managers', 'Capture requirements once; the graph keeps them in sync with what\'s actually shipped.'],
-                ['AR', 'Architects', 'Map every requirement onto a layered system blueprint; impact-analyze before changes.'],
-                ['EN', 'Engineers', 'Generate code & tests from the functional graph; reverse-engineer brownfield repos.'],
+                ['PO', 'Product Owners', 'Capture requirements once; the graph keeps them in sync with what\'s actually shipped.'],
+                ['AR', 'Architects', 'Keep the eight-layer Architecture Ontology current; the Impact Analysis Agent uses it to answer "what does this change touch" before any code is written.'],
+                ['EN', 'Engineers', 'Generate code and tests against the four-layer impact report; reverse-engineer brownfield repos into the Code Ontology so the rest of the graph can be inferred.'],
                 ['DS', 'Designers', 'Keep the design system aligned with the running UI; flag Figma vs shipped deviations.'],
                 ['CA', 'Compliance & Audit', 'Trace any line of code back to the requirement, ticket, or document that justified it.'],
-                ['—', 'One source of truth', 'No more divergent artefacts across roles — the graph is the system of record.'],
+                ['—', 'One source of truth', 'No more divergent artefacts across roles: the graph is the system of record.'],
               ].map(([tag, title, desc]) => (
                 <div key={title} className="persona-card">
                   <div className="persona-card__tag">{tag}</div>
@@ -208,9 +200,9 @@ export default function Home() {
         <div className="wrap">
           <ScrollReveal>
             <div className="lsection__head">
-              <div className="lsection__eyebrow">Honest comparison</div>
+              <div className="lsection__eyebrow">How it compares</div>
               <h2>How Breeze.AI compares.</h2>
-              <p className="lead">Three tools come up in the same conversation. All overlap with Breeze in some dimension; none does the same thing.</p>
+              <p className="lead">Each overlaps with Breeze in one or two dimensions. The full set Breeze covers, taken together, is what distinguishes the platform.</p>
             </div>
           </ScrollReveal>
           <ComparisonTabs />

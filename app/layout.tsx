@@ -7,8 +7,8 @@ const ibmPlexSans = IBM_Plex_Sans({ subsets: ['latin'], variable: '--font-body',
 const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono', weight: ['400','500','600'], display: 'swap' })
 
 export const metadata: Metadata = {
-  title: 'Breeze.AI — One connected graph, from intent to implementation',
-  description: 'Breeze.AI is an AI-powered, ontology-driven development platform by Accion Labs. Capture requirements, architecture, code, and design as a single connected knowledge graph.',
+  title: 'Breeze.AI: AI-led SDLC, powered by Semantic Engineering',
+  description: 'Breeze.AI is an AI-led SDLC platform, powered by Semantic Engineering, built by Accion Labs. Capture requirements, architecture, code, and design as a single connected knowledge graph.',
   icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/assets/logo.png` },
 }
 

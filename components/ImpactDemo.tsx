@@ -16,23 +16,23 @@ const LAYERS: { name: string; color: string; rows: Row[] }[] = [
     { m: 'mod', type: 'Action', name: 'Confirm project move → POST …/detail/create' },
   ]},
   { name: 'Design', color: 'var(--green)', rows: [
-    { m: 'new', type: 'Component', name: 'QuoteModal — form + PDF dropzone' },
-    { m: 'new', type: 'Component', name: 'MyQuotePanel — detail sidebar' },
-    { m: 'mod', type: 'Component', name: 'TrackerCardUS — value chip + status badge' },
+    { m: 'new', type: 'Component', name: 'QuoteModal (form + PDF dropzone)' },
+    { m: 'new', type: 'Component', name: 'MyQuotePanel (detail sidebar)' },
+    { m: 'mod', type: 'Component', name: 'TrackerCardUS (value chip + status badge)' },
   ]},
   { name: 'Code', color: 'var(--amber)', rows: [
-    { m: 'new', type: 'backend', name: 'src/bid-quote/* — new NestJS module' },
-    { m: 'new', type: 'backend', name: 's3-storage.service.ts — presigned PUT/GET' },
-    { m: 'mod', type: 'frontend', name: 'ProjectTrackerUS/index.tsx — open modal on move' },
+    { m: 'new', type: 'backend', name: 'src/bid-quote/*: new NestJS module' },
+    { m: 'new', type: 'backend', name: 's3-storage.service.ts: presigned PUT/GET' },
+    { m: 'mod', type: 'frontend', name: 'ProjectTrackerUS/index.tsx: open modal on move' },
   ]},
   { name: 'Architecture', color: 'var(--teal)', rows: [
     { m: 'new', type: 'DataLake', name: 'Object store for quote PDFs (net-new)' },
-    { m: 'mod', type: 'Services', name: 'global_tnlm — bid-quote + status hooks' },
-    { m: 'mod', type: 'DataLake', name: 'ES pipeline index — denormalized quote' },
+    { m: 'mod', type: 'Services', name: 'global_tnlm (bid-quote + status hooks)' },
+    { m: 'mod', type: 'DataLake', name: 'ES pipeline index: denormalized quote' },
   ]},
   { name: 'Data', color: 'var(--fg-2)', rows: [
-    { m: 'new', type: 'CREATE', name: 'TRX_TNLM.BID_QUOTE — table + FK + sequence' },
-    { m: 'keep', type: 'FK', name: 'ON DELETE on PROJECT_PIPELINE_DETAIL — decide' },
+    { m: 'new', type: 'CREATE', name: 'TRX_TNLM.BID_QUOTE (table + FK + sequence)' },
+    { m: 'keep', type: 'FK', name: 'ON DELETE on PROJECT_PIPELINE_DETAIL (decide)' },
   ]},
 ]
 
@@ -50,7 +50,7 @@ function Report({ rowsPerLayer = 99 }: { rowsPerLayer?: number }) {
       <div className="impact-report__body">
         <div className="impact-report__title">Breeze Impact Analysis</div>
         <div className="impact-report__meta">
-          <span><b>Ticket</b> LMV2-101 — Capture &amp; Track Submitted Bid / Quote Details</span>
+          <span><b>Ticket</b> LMV2-101: Capture &amp; Track Submitted Bid / Quote Details</span>
           <span><b>Project</b> Lead Manager V2</span>
         </div>
 
@@ -60,7 +60,7 @@ function Report({ rowsPerLayer = 99 }: { rowsPerLayer?: number }) {
           <span className="verdict-pill verdict-pill--ddl">DDL&nbsp;<b>🟡 V2 WORK</b></span>
         </div>
 
-        <p className="impact-report__summary">Adds a <b>Bid Quote</b> record (amount, dates, status, attached PDF) to a tracked project — surfaced on the tracker card, the Project Detail sidebar, and the existing folder-move flow. Spans <b>3 repos</b>; the headline risk is a <b>net-new PDF object-storage path</b> V2 has no infrastructure for today.</p>
+        <p className="impact-report__summary">Adds a <b>Bid Quote</b> record (amount, dates, status, attached PDF) to a tracked project, surfaced on the tracker card, the Project Detail sidebar, and the existing folder-move flow. Spans <b>3 repos</b>; the headline risk is a <b>net-new PDF object-storage path</b> V2 has no infrastructure for today.</p>
 
         {LAYERS.map((l) => (
           <div key={l.name} className="impact-layer" style={{ borderLeftColor: l.color } as React.CSSProperties}>

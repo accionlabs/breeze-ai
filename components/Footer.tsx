@@ -13,7 +13,7 @@ export default function Footer() {
               <span className="brand__by">By Accion Labs</span>
             </div>
           </Link>
-          <p className="footer__blurb">An AI-powered, ontology-driven development platform. Requirements, architecture, code, and design — one connected knowledge graph.</p>
+          <p className="footer__blurb">AI-led SDLC, powered by Semantic Engineering. Requirements, architecture, code, and design: one connected knowledge graph.</p>
         </div>
         <div className="footer__col">
           <h5>Documentation</h5>

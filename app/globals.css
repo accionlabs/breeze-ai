@@ -590,6 +590,10 @@ code, kbd {
 .handoff:last-child { border-bottom: none; padding-bottom: 20px; }
 .handoff__n { font-family: var(--mono); font-size: 12px; color: var(--fg-muted); padding-top: 2px; }
 .handoff__line { font-size: 15px; color: var(--fg-2); line-height: 1.55; }
+.handoffs__prose { padding: 20px 24px 24px; display: flex; flex-direction: column; gap: 14px; }
+.handoffs__prose p { font-size: 14.5px; color: var(--fg-2); line-height: 1.65; margin: 0; }
+.handoffs__prose p b { color: var(--fg); font-weight: 600; }
+.handoffs__prose p em { font-style: normal; font-family: var(--mono); font-size: 12px; color: oklch(0.52 0.12 70); background: var(--amber-light); border: 1px solid oklch(0.88 0.07 70); border-radius: 4px; padding: 1px 7px; margin-left: 6px; vertical-align: middle; }
 .handoff__line b { font-weight: 600; color: var(--fg); }
 .handoff__drift { display: block; margin-top: 5px; font-family: var(--mono); font-size: 11px; color: oklch(0.52 0.12 70); background: var(--amber-light); border: 1px solid oklch(0.88 0.07 70); border-radius: 4px; padding: 2px 8px; width: fit-content; }
 

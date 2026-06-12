@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = { title: 'Quick-start — Breeze.AI' }
+export const metadata: Metadata = { title: 'Quick-start: Breeze.AI' }
 
 export default function Quickstart() {
   return (
@@ -15,7 +15,7 @@ export default function Quickstart() {
           <span className="code-block__dot" style={{background:'#ff5f57'}}/>
           <span className="code-block__dot" style={{background:'#febc2e'}}/>
           <span className="code-block__dot" style={{background:'#28c840'}}/>
-          <span className="code-block__title">claude-code — install breeze</span>
+          <span className="code-block__title">claude-code: install breeze</span>
         </div>
         <div className="code-block__body">
           <span className="ln"><span className="c"># 1. register the marketplace</span></span>
@@ -25,7 +25,7 @@ export default function Quickstart() {
         </div>
       </div>
       <div className="doc-note" style={{ marginTop: 16 }}>
-        The first Breeze command opens a browser sign-in (Keycloak OAuth) — no API key needed. Sessions auto-refresh after that.
+        The first Breeze command opens a browser sign-in (Keycloak OAuth): no API key needed. Sessions auto-refresh after that.
       </div>
 
       <h2 id="first-graph">Five steps to your first graph</h2>
@@ -35,7 +35,7 @@ export default function Quickstart() {
           <span className="code-block__dot" style={{background:'#ff5f57'}}/>
           <span className="code-block__dot" style={{background:'#febc2e'}}/>
           <span className="code-block__dot" style={{background:'#28c840'}}/>
-          <span className="code-block__title">claude-code — first graph</span>
+          <span className="code-block__title">claude-code: first graph</span>
         </div>
         <div className="code-block__body">
           <span className="ln"><span className="c"># 1. link this workspace to a Breeze project</span></span>
@@ -65,7 +65,7 @@ export default function Quickstart() {
           <span className="code-block__dot" style={{background:'#ff5f57'}}/>
           <span className="code-block__dot" style={{background:'#febc2e'}}/>
           <span className="code-block__dot" style={{background:'#28c840'}}/>
-          <span className="code-block__title">claude-code — common commands</span>
+          <span className="code-block__title">claude-code: common commands</span>
         </div>
         <div className="code-block__body">
           <span className="ln"><span className="c"># search anything in the graph</span></span>

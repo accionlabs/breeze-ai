@@ -1,16 +1,16 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
-export const metadata: Metadata = { title: 'MCP tool reference — Breeze.AI' }
+export const metadata: Metadata = { title: 'MCP tool reference: Breeze.AI' }
 
 export default function McpTools() {
   return (
     <section className="docs-section">
-      <h1>MCP Tool Reference — breeze-mcp</h1>
+      <h1>MCP Tool Reference: breeze-mcp</h1>
 
       <p>
         In-depth reference for every tool published by the Breeze MCP server. Every tool below is
-        namespaced <code>mcp__breeze-mcp__&lt;tool&gt;</code> when called by Claude — bare names are used in
+        namespaced <code>mcp__breeze-mcp__&lt;tool&gt;</code> when called by Claude; bare names are used in
         this reference.
       </p>
 
@@ -35,7 +35,7 @@ export default function McpTools() {
 
       <div className="doc-note">
         <b>Note:</b> Parameter naming gotchas. Every tool that targets a project takes the project UUID as{' '}
-        <code>uuid</code> (not <code>projectId</code> / <code>projectUuid</code>) — except{' '}
+        <code>uuid</code> (not <code>projectId</code> / <code>projectUuid</code>), except{' '}
         <code>Code_Graph_Search</code> and <code>Get_Code_File_Details</code>, which use{' '}
         <code>project_uuid</code>. <code>Get_all_steps_actions_for_a_scenario_id</code> historically
         required the scenario ID under the key <code>parameters0_Value</code> on some clients; the Python
@@ -96,11 +96,11 @@ export default function McpTools() {
       </div>
       <p><b>Returns:</b> Confirmation with the updated project&apos;s details.</p>
 
-      <h2 id="functional-graph-reads">2. Functional Graph — Hierarchy Reads</h2>
+      <h2 id="functional-graph-reads">2. Functional Graph: Hierarchy Reads</h2>
       <p>Hierarchy: <code>Persona → Outcome → Scenario → Step → Action</code>.</p>
 
       <h3 id="get-all-personas">Get_all_personas</h3>
-      <p>PRIMARY TOOL — call first when the user asks &quot;who uses this system?&quot;, &quot;what roles exist?&quot;, or any question about responsibilities or role-based flows. Returns all Persona entities.</p>
+      <p>PRIMARY TOOL: call first when the user asks &quot;who uses this system?&quot;, &quot;what roles exist?&quot;, or any question about responsibilities or role-based flows. Returns all Persona entities.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -114,7 +114,7 @@ export default function McpTools() {
       <p><b>Returns:</b> List of Persona objects with id, name, and metadata. Use the persona id to fetch outcomes via <code>Get_all_outcomes_for_a_persona_id</code>.</p>
 
       <h3 id="get-all-outcomes-for-a-persona-id">Get_all_outcomes_for_a_persona_id</h3>
-      <p>PRIMARY TOOL — call when asking what a role does, what goals a persona has, what features they interact with.</p>
+      <p>PRIMARY TOOL: call when asking what a role does, what goals a persona has, what features they interact with.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -129,7 +129,7 @@ export default function McpTools() {
       <p><b>Returns:</b> Outcome objects with id, name, and citations to source documents.</p>
 
       <h3 id="get-all-scenarios-for-a-outcome-id">Get_all_scenarios_for_a_outcome_id</h3>
-      <p>PRIMARY TOOL — call when asking how a feature works, what flows exist, alternative paths, edge cases.</p>
+      <p>PRIMARY TOOL: call when asking how a feature works, what flows exist, alternative paths, edge cases.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -157,7 +157,7 @@ export default function McpTools() {
       <p><b>Returns:</b> Nested tree <code>Scenario → Steps[] → Actions[]</code>.</p>
 
       <h3 id="get-complete-functional-graph">Get_complete_functional_graph</h3>
-      <p>EXPENSIVE — returns the entire functional graph for a project as one nested tree. Use only for full document generation, export, or reporting. Do NOT use for search or specific-feature lookup.</p>
+      <p>EXPENSIVE: returns the entire functional graph for a project as one nested tree. Use only for full document generation, export, or reporting. Do NOT use for search or specific-feature lookup.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -183,10 +183,10 @@ export default function McpTools() {
       </div>
       <p><b>Returns:</b> Scenario objects with id, name, and description.</p>
 
-      <h2 id="functional-graph-search-mutation">3. Functional Graph — Search &amp; Mutation</h2>
+      <h2 id="functional-graph-search-mutation">3. Functional Graph: Search &amp; Mutation</h2>
 
       <h3 id="functional-graph-search">Functional_Graph_Search</h3>
-      <p>DEFAULT SEARCH TOOL — call BEFORE <code>Documents</code> for any question about behavior, features, capabilities, impact, or cross-cutting concerns. Semantic search across all functional-graph entities.</p>
+      <p>DEFAULT SEARCH TOOL: call BEFORE <code>Documents</code> for any question about behavior, features, capabilities, impact, or cross-cutting concerns. Semantic search across all functional-graph entities.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -249,7 +249,7 @@ export default function McpTools() {
       <p><b>Returns:</b> Confirmation with updated node details.</p>
 
       <h3 id="bulk-update-functional-nodes">bulk_update_functional_nodes</h3>
-      <p>Bulk upsert the entire functional ontology hierarchy for a project in one call — <code>Persona → Outcome → Scenario → Step → Action → Api</code> tree. Matches the design bulk-upsert pattern. Used by <code>generate-functional-from-ui</code> and <code>generate-functional-from-backend</code>.</p>
+      <p>Bulk upsert the entire functional ontology hierarchy for a project in one call: <code>Persona → Outcome → Scenario → Step → Action → Api</code> tree. Matches the design bulk-upsert pattern. Used by <code>generate-functional-from-ui</code> and <code>generate-functional-from-backend</code>.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -301,7 +301,7 @@ export default function McpTools() {
       <p><b>Returns:</b> Confirmation with upsert summary.</p>
 
       <h3 id="delete-functional-node">Delete_Functional_Node</h3>
-      <p>Delete a node. Deleting a parent cascades to descendants — confirm intent before invoking on high-level nodes.</p>
+      <p>Delete a node. Deleting a parent cascades to descendants; confirm intent before invoking on high-level nodes.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -359,7 +359,7 @@ export default function McpTools() {
       <p><b>Returns:</b> Matching architecture nodes as JSON.</p>
 
       <h3 id="create-architecture-node">Create_Architecture_Node</h3>
-      <p>Create a node in a specified architecture layer. <code>data</code> keys vary by label — <code>name</code> is always required, everything else is optional.</p>
+      <p>Create a node in a specified architecture layer. <code>data</code> keys vary by label; <code>name</code> is always required, everything else is optional.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -392,7 +392,7 @@ export default function McpTools() {
       <p><b>Returns:</b> Confirmation with created node details.</p>
 
       <h3 id="update-architecture-node">Update_Architecture_Node</h3>
-      <p>Update an existing architecture node. All <code>data</code> keys are optional on update — send only what you want to change.</p>
+      <p>Update an existing architecture node. All <code>data</code> keys are optional on update; send only what you want to change.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -596,7 +596,7 @@ export default function McpTools() {
           </tbody>
         </table>
       </div>
-      <p><b>Returns:</b> <code>{`{ data: Repo[], total }`}</code> — each <code>Repo</code> has <code>_id</code>, <code>name</code>, <code>repoUrl</code>, <code>status</code>, <code>fileCount</code>, <code>languages</code>.</p>
+      <p><b>Returns:</b> <code>{`{ data: Repo[], total }`}</code>; each <code>Repo</code> has <code>_id</code>, <code>name</code>, <code>repoUrl</code>, <code>status</code>, <code>fileCount</code>, <code>languages</code>.</p>
 
       <h3 id="code-graph-search">Code_Graph_Search</h3>
       <p>Semantic search across File, Function, and Class nodes in the code ontology. Returns ranked results with source code, call chains, file paths, line numbers, and dependency metadata.</p>
@@ -780,7 +780,7 @@ export default function McpTools() {
       <p><b>Returns:</b> Created procedure details.</p>
 
       <h3 id="update-db-schema-node">Update_DB_Schema_Node</h3>
-      <p>Update any DB schema entity by id. <code>data</code> uses camelCase keys (<code>tableType</code>, <code>dataType</code>, <code>isUnique</code>, …) — every field is optional on update. Renaming a <code>table</code> cascades the new name onto child columns / constraints / indexes and inbound FK references in the same DataLake.</p>
+      <p>Update any DB schema entity by id. <code>data</code> uses camelCase keys); every field is optional on update. Renaming a <code>table</code> cascades the new name onto child columns / constraints / indexes and inbound FK references in the same DataLake.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
@@ -837,7 +837,7 @@ export default function McpTools() {
       <h2 id="documents-health">8. Documents &amp; Health</h2>
 
       <h3 id="documents">Documents</h3>
-      <p>SECONDARY SOURCE — do NOT use as the first tool for any question. Always try <code>Functional_Graph_Search</code> and the hierarchy tools first. Use this only when you need raw requirement text, exact formulas, threshold values, regulatory language, or detail the functional graph doesn&apos;t capture.</p>
+      <p>SECONDARY SOURCE: do NOT use as the first tool for any question. Always try <code>Functional_Graph_Search</code> and the hierarchy tools first. Use this only when you need raw requirement text, exact formulas, threshold values, regulatory language, or detail the functional graph doesn&apos;t capture.</p>
       <div className="doc-table-wrap">
         <table className="doc-table">
           <thead><tr><th>Param</th><th>Type</th><th>Required</th><th>Default</th><th>Description</th></tr></thead>
