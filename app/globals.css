@@ -183,6 +183,17 @@ code, kbd {
 }
 .btn--outline:hover { border-color: var(--fg); background: var(--bg-hover); }
 .btn--sm { padding: 6px 14px; font-size: 13px; }
+.btn--costing {
+  background: oklch(0.62 0.16 155);
+  color: #fff;
+  border-color: oklch(0.62 0.16 155);
+  box-shadow: 0 4px 14px oklch(0.62 0.16 155 / 0.28);
+}
+.btn--costing:hover {
+  background: oklch(0.56 0.17 155);
+  border-color: oklch(0.56 0.17 155);
+  box-shadow: 0 6px 20px oklch(0.62 0.16 155 / 0.36);
+}
 
 /* ── HERO ────────────────────────────────────────────────── */
 .hero {

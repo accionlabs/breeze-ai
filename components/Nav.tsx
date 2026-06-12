@@ -28,6 +28,7 @@ export default function Nav({ links, page }: { links: Link[]; page: 'home' | 'do
           {links.map(l => <Link key={l.href} href={l.href}>{l.label}</Link>)}
         </nav>
         <div className="nav__cta">
+          <a href={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/assets/breeze-costing.xlsx`} download="Breeze Costing.xlsx" className="btn btn--costing btn--sm">Cost Calculator</a>
           {page === 'home'
             ? <Link href="/user-guide" className="btn btn--outline btn--sm">Docs</Link>
             : <Link href="/" className="btn btn--outline btn--sm">Home</Link>}
